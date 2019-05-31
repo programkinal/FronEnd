@@ -1,10 +1,10 @@
 <div class="row mt-5">
   <div class="col">
+    <input type="text" class="form-control" name="buscar" [(ngModel)]="buscar" placeholder="Search in me...">
     <button type="button" class="btn btn-outline-primary float-right mb-3" routerLink="../Save-Course" >Nuevo Curso</button>
     <table class="table table-hover">
       <thead>
         <tr>
-          <th scope="col">#</th>
           <th scope="col">Code</th>
           <th scope="col">Name</th>
           <th scope="col">Descripcion</th>
@@ -14,9 +14,8 @@
       </thead>
       <tbody>
         
-        <tr *ngFor="let course of cursos;  index as i">
+        <tr *ngFor="let course of cursos | filterCourse: buscar" >
 
-          <th scope="row"> {{i+1}}</th>
           <td>{{course.code}}</td>
           <td>{{course.name}}</td>
           <td>{{course.description}}</td>

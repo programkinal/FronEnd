@@ -15,6 +15,7 @@ export class CoursesListComponent implements OnInit {
   search1: String;
   cursos: [];
   results: [];
+  buscar = '';
   constructor(public rest: CourseService) { 
 
   }
