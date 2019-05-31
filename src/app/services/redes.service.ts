@@ -47,5 +47,10 @@ export class RedesService {
     );
   }
 
-
+  searchCareer(_id){
+    let id = _id;
+    return this.http.post(this.endpoint + '/SearchCareer', {id}, this.httpOptions).pipe(
+      map(this.extractData)
+    );
+  }
 }

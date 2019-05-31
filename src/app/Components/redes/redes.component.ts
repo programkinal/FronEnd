@@ -4,6 +4,8 @@ import {FormControl, Validators } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Redes } from 'src/app/models/redes';
+
+
 @Component({
   selector: 'app-redes',
   templateUrl: './redes.component.html',
@@ -22,12 +24,16 @@ export class RedesComponent implements OnInit {
     dateFinal: new FormControl('',Validators.required)
   });
 
+  @ViewChild('openModal') openModal:ElementRef;
   @ViewChild('select') select:ElementRef;
+  @ViewChild('router1') router:ElementRef;
 
   constructor(public rest: RedesService,private toastr: ToastrService) {
     this.rest.setRedes(this.redes);
     this.redes = new Redes('','','','');
   }
+
+  
 
   ngOnInit() {
     this.getCareer();
@@ -42,6 +48,7 @@ export class RedesComponent implements OnInit {
     });
   }
   onSubmit(){
+
    
     this.rest.setRedes(this.redes).subscribe(res => {
       console.log(res)
@@ -50,6 +57,7 @@ export class RedesComponent implements OnInit {
       }else{
         if(res.Guardado && res.Guardado._id){
           this.toastr.success('Se ha guardado exitosamente!', 'Guardado');
+          this.openModal.nativeElement.click();
           console.log(this.redes)
         }else if(res.message == 'La red de estudio ya esta registrada'){
           this.toastr.error('La red ingresada ya esta registrada en el sistema', 'Error');
