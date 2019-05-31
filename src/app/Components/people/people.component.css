@@ -12,6 +12,11 @@ h1{
   }
 }
 
+#maxWidth {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
 input[type="text"] {
   box-sizing: border-box;
   text-transform: uppercase;

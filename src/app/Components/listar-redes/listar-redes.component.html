@@ -1,0 +1,48 @@
+<div class="row mt-5" >
+  <div class="col">
+      <button  class="btn btn-outline-primary float-right mb-3" routerLink="../redes" >Nueva Red de estudio</button>
+    <div class="input-group mb-3" style="width: 200px;">
+    </div> 
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Carrera</th>
+          <th scope="col">Fecha Inicio</th>
+          <th scope="col">Fecha Final</th>
+          <th scope="col">&nbsp;</th>
+          <th scope="col">&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr *ngFor="let red of redes;  index as i">
+
+          <th scope="row">{{i+1}}</th>
+          <td>{{red.name}}</td>
+          <td>{{red.career}}</td>
+          <td>{{red.dateInit}}</td>
+          <td>{{red.dateFinal}}</td>
+          <td > 
+            <button class="btn btn-success" routerLink="animalSave">Update</button>
+          </td>
+          <ng-template #noOwner>
+            <td>
+              <a  class="btn btn-primary" routerLink="animalSave" disable ="true">Update</a>
+            </td>
+          </ng-template>
+          <td *ngIf="isAdmin == true; else noAdmin">
+            <a  class="btn btn-danger">Delete</a>
+          </td>
+          <ng-template #noAdmin>
+            <td>
+              <a  class="btn btn-danger" disable = "true">Delete</a>
+            </td>
+          </ng-template>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>

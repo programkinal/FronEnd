@@ -26,6 +26,12 @@ import { CoursesComponent } from './Components/courses/courses.component';
 import { CoursesListComponent } from './Components/courses-list/courses-list.component';
 import { CareersListComponent } from './Components/careers-list/careers-list.component';
 import { FamilyComponent } from './Components/family/family.component';
+import { PruebaComponent } from './Components/prueba/prueba.component';
+import { HomeComponent } from './Components/home/home.component';
+import { RedesComponent } from './Components/redes/redes.component';
+import { InstructoresComponent } from './Components/instructores/instructores.component';
+import { ListInstructorComponent } from './Components/list-instructor/list-instructor.component';
+import { ListarRedesComponent } from './Components/listar-redes/listar-redes.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +43,13 @@ import { FamilyComponent } from './Components/family/family.component';
     CoursesComponent,
     CoursesListComponent,
     CareersListComponent,
-    FamilyComponent
+    FamilyComponent,
+    PruebaComponent,
+    HomeComponent,
+    RedesComponent,
+    InstructoresComponent,
+    ListInstructorComponent,
+    ListarRedesComponent
   ],
   imports: [
     BrowserModule,

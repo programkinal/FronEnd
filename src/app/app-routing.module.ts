@@ -9,8 +9,19 @@ import { CoursesComponent } from './Components/courses/courses.component';
 import { CoursesListComponent } from './Components/courses-list/courses-list.component';
 import { CareersListComponent } from './Components/careers-list/careers-list.component';
 import { PeopleComponent } from './Components/people/people.component';
+import { HomeComponent } from './Components/home/home.component';
+import { RedesComponent } from './Components/redes/redes.component';
+import { InstructoresComponent } from './Components/instructores/instructores.component';
+import { ListInstructorComponent } from './Components/list-instructor/list-instructor.component';
+import { ListarRedesComponent } from './Components/listar-redes/listar-redes.component';
+
 
 const routes: Routes = [
+  {path: '', component: HomeComponent},
+  {path: 'List-Redes', component: ListarRedesComponent},
+  {path: 'redes', component: RedesComponent},
+  {path: 'listInstructor', component: ListInstructorComponent},
+  {path: 'instructores', component: InstructoresComponent},
   {path: 'Save-People', component: PeopleComponent},
   {path: 'Save-Units-Academic', component: UnitsComponent},
   {path: 'Save-Career-Educative', component: CareerComponent},

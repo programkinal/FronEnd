@@ -3,7 +3,7 @@ export class Family {
         public name: string,
         public father: string,
         public mother: string,
-        public inCharge: [Object],
-        public son: [Object]
+        public inCharge: Array<any>,
+        public son: Array<any>
     ){}
 }

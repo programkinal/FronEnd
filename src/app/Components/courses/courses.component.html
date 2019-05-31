@@ -4,14 +4,14 @@
    <!-- <div style="width:40%; margin-left:27%">-->
 <hr class="class">
 </div>
-<div class="shadow p-3 mb-5 bg-white rounded" style="width:1000px; margin-left: 17%">
+<div id="maxWidth" class="shadow p-3 mb-5 bg-white rounded" >
 
     <div class="conteiner">
         <div class="row">
             <div class="col md-4">
                 <br>
                 <form name="form" [formGroup]="form">
-                    <input class="form-control" formControlName="name" [ngClass]="{'is-invalid': 
+                    <input  class="form-control" formControlName="name" [ngClass]="{'is-invalid': 
                     form.get('name').touched && form.get('name').invalid}" required='' type='text' [(ngModel)]="course.name">
                     <label alt='Nombre del Curso' placeholder='Nombe del Curso'></label>
                 </form>

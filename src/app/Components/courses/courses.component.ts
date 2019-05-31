@@ -32,7 +32,9 @@ export class CoursesComponent implements OnInit {
         if(res.Courso && res.Courso._id){
           console.log('Se guardo');
           this.toastr.success('Se han guardados los datos', 'Guardar');
-          this.limpiar();
+          this.course.name = ''
+          this.course.code = ''
+          this.course.description = ''
         }else if(res.message == 'El codigo ya fue registrado' ){
           this.toastr.error('El codigo ya fue registrado', 'Error');
         }else if(res.message == 'El nombre ya fue registrado'){
@@ -41,9 +43,6 @@ export class CoursesComponent implements OnInit {
           
       }
     })
-  }
-  limpiar(){
-    this.form.reset();
   }
 
 }

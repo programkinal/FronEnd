@@ -1,0 +1,70 @@
+<br>
+<h1 class="display-4">Ingrese su instructor</h1>
+<div style="width:50%; margin-left:24%">
+   <!-- <div style="width:40%; margin-left:27%">-->
+<hr style="margin-left:-5%">
+</div>
+<div id="maxWidth" class="shadow p-3 mb-5 bg-white rounded" style="width:700px; margin-left: 17%">
+
+    <div class="conteiner">
+        <div class="row">
+            <div class="col md-4">
+                <br>
+                <form name="form" [formGroup]="form">
+                    <input class="form-control" formControlName="code" [ngClass]="{'is-invalid': 
+                    form.get('code').touched && form.get('code').invalid}" required='' type='text' [(ngModel)]="instructor.code">
+                    <label alt='Codigo instructor' placeholder='Codigo instructor'></label>
+                </form>
+                <div class="invalid-feedback">
+                  <div>
+                      Ingrese el codigo del instructor
+                  </div>
+              </div>
+            </div>
+            <div class="col md-4">
+            </div>
+        </div>
+    </div>
+<hr>
+<div class="conteiner">
+    <div class="row">
+        <div class="col md-4">
+            <br>
+            <form name="form" [formGroup]="form">
+                <input id="name" class="form-control" formControlName="Person" [ngClass]="{'is-invalid': 
+                form.get('Person').touched && form.get('Person').invalid}" required='' type='text' [(ngModel)]="instructor.Person">
+                <label alt='Informacion personal' placeholder='Informacion personal'></label>
+            </form>
+            <div class="invalid-feedback">
+              <div>
+                  Seleccione a la persona
+              </div>
+          </div>
+        </div>
+        <div class="col md-4">
+        </div>
+    </div>
+</div>
+
+<hr>
+<div class="conteiner">
+    <div class="row">
+        <div class="col md-4">
+            <br>
+            <form name="form" [formGroup]="form">
+                <input class="form-control" formControlName="profesion" [ngClass]="{'is-invalid': 
+                form.get('profesion').touched && form.get('profesion').invalid}" required='' type='text' [(ngModel)]="instructor.profesion">
+                <label alt='Profesion' placeholder='Profesion'></label>
+            </form>
+        </div>
+        <div class="col md-4">
+        </div>
+    </div>
+</div>
+<hr>
+<div >
+<button type="button"  style="text-align: right"(click)="onSumit()" class="btn btn-outline-primary">Guardar</button>
+<button type="button" style="text-align: left" routerLink= "/listInstructor" class="btn btn-outline-primary">Lista de Instructores</button>
+</div>
+
+</div>

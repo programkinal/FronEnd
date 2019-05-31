@@ -1,0 +1,75 @@
+<div id="maxWidth" >
+    <h1 class="display-4" style="margin-left: 33%">Ingrese los datos</h1>
+    <div style="width:80%; margin-left:12%">
+       <!-- <div style="width:40%; margin-left:27%">-->
+    <hr class="hola">
+    </div>
+    <div class="shadow p-3 mb-5 bg-white rounded" style="width:90%; margin-left: 6%">
+    <br>
+    <div class="conteiner">
+        <div class="row">
+            <div class="col md-4">
+                <form name="form" [formGroup]="form">
+              <input name="name" type="text" class="form-control" formControlName="name" [ngClass]="{'is-invalid': 
+              form.get('name').touched && form.get('name').invalid}" required=''  [(ngModel)]="this.redes.name">
+              <label for="name" alt='Nombre de la red' placeholder='Ingrese nombre de la red'></label>
+              <div class="invalid-feedback">
+                <div>
+                    Ingrese el nombre de la red
+                </div>
+            </div>
+            </form>
+            
+            </div>
+            <div class="col md-4">
+              <form name="form" [formGroup]="form">
+                  <select [(ngModel)]="this.redes.career" class="form-control" formControlName="career" [ngClass]="{'is-invalid': 
+                  form.get('career').touched && form.get('career').invalid}"  required="" class="custom-select">
+                      <option value="" hidden></option>
+                      <option *ngFor="let carrera of careers" >{{carrera.name}}</option>
+                  </select>
+                  <label for="Carrera" alt='Carrera' placeholder='Carrera'></label>
+                  <div class="invalid-feedback">
+                    <div>
+                        Seleccione la carrera
+                    </div>
+                </div>
+              </form>   
+          </div>
+        </div>
+    </div>
+    <hr>
+    <div class="conteiner">
+      <div class="row">
+          <div class="col md-4">
+              <form name="form" [formGroup]="form">
+                  <input type="Date" name="dateInit" [(ngModel)]="this.redes.dateInit" class="form-control" formControlName="dateInit" [ngClass]="{'is-invalid': 
+                  form.get('dateInit').touched && form.get('dateInit').invalid}" required='' >
+                  <label for="dateInit" alt='Fecha de inicio' placeholder='Fecha de inicio'></label>
+                  <div class="invalid-feedback">
+                    <div>
+                        Seleccione la fecha de incio de la red
+                    </div>
+                </div>
+              </form>     
+          </div>
+          <div class="col md-4">
+              <form name="form" [formGroup]="form">
+                  <input type="Date" name="dateFinal"  [(ngModel)]="this.redes.dateFinal" class="form-control" formControlName="dateFinal" [ngClass]="{'is-invalid': 
+                  form.get('dateFinal').touched && form.get('dateFinal').invalid}" required='' >
+                  <label for="dateFinal" alt='Fecha de final' placeholder='Fecha de final'></label>
+                  <div class="invalid-feedback">
+                    <div>
+                        Seleccione la fecha de final de la red
+                    </div>
+                </div>
+              </form>     
+          </div>
+      </div>
+  </div>
+  <hr>
+      <button type="button" style="margin-left: 83%" class="btn btn-outline-primary " routerLink="../List-Redes" (click)="onSubmit()" >Enviar formulario</button>
+     
+    
+    </div>
+    </div>

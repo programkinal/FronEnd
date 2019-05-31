@@ -31,9 +31,12 @@ export class CareerComponent implements OnInit {
       if(res.message == 'Debes de llenar todos los campos'){
         this.toastr.error('Llenar todos los campos');
       }else{
-        if(res.Carrera && res.Carrera._id){
+        if(res.career && res.career._id){
           console.log('Se guardo');
           this.toastr.success('Se han guardados los datos', 'Guardar');
+          this.career.name =''
+          this.career.code = ''
+          this.career.description = ''
         }else if(res.message == 'El codigo ya fue registrado' || res.message == 'El nombre ya fue registrado' ){
           this.toastr.error('El codigo ya fue registrado', 'Error');
           this.toastr.error('Ó El nombre ya fue registrado', 'Error');

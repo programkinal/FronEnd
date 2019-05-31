@@ -29,7 +29,8 @@ export class PersonServiceService {
     );
   }
 
-  setPerson(save_person){
+  setPerson(save_person): Observable<any>{
+    console.log(JSON.stringify(save_person))
     let params = JSON.stringify(save_person);
     return this.http.post(this.endpoint + '/Add-Person', params, this.httpOptions).pipe(
       map(this.extractData)

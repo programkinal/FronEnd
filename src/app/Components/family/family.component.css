@@ -1,0 +1,31 @@
+ul{
+    display: block;
+    position: absolute;
+    min-width: 140px;
+    left: 41px;
+    top:38px;
+    background-color: white;
+    list-style: none;
+  }
+  
+  li{
+    text-decoration: none;
+  }
+  
+  li:hover{
+    color: rgb(192, 192, 192);
+  }
+  
+  .hola{
+      width: 100%;
+  }
+  
+  h1{
+      margin-left: 35%
+  }
+  
+  @media (max-width: 600px) {
+    body {
+      margin: 0 0 0 0;
+    }
+  }

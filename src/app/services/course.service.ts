@@ -32,4 +32,8 @@ export class CourseService {
       map(this.extractData)
     );
   }
+  searchCurso(search, search1): Observable<any>{
+    console.log('Funciona buscardor');
+    return this.http.post(this.endpoint + '/Search-Course', {search, search1}, this.httpOptions).pipe(map(this.extractData));
+  }
 }

@@ -11,15 +11,21 @@
         <div class="col md-4">
             <h5><span class="badge badge-light">Agregar hijo(s)</span></h5>
             <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fas fa-search"></i></span>
-                    </div>
-                    <input [ngModel]="family.son" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-search"></i></span>
                 </div>
+                <input #myInput [(ngModel)]="search4" (input)="filterP4()"
+                name="search4" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                <div>
+                    <ul *ngIf="this.p4 == true">
+                        <li *ngFor="let father of sPerson4; let indice = index"><a id="hola" name="hola" (click)="add4(indice)">{{father.firstName}} {{father.firstLastName}}</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
         <div class="col md-4">
             <h5 style="color:white">hola</h5>
-            <button type="button"  class="btn btn-outline-info">+</button>   
+            <button type="button" (click)="addSon()" class="btn btn-outline-info">+</button>   
         </div>
     </div>
 </div>
@@ -30,11 +36,17 @@
         <div class="col md-4">
             <h5><span class="badge badge-light">Agregar padre</span></h5>
             <div class="input-group mb-3">
-                    <div class="input-group-prepend" >
-                        <span class="input-group-text"><i class="fas fa-search"></i></span>
-                    </div>
-                    <input [ngModel]="family.father" type="text" class="form-control" style="width:50%">
+                <div class="input-group-prepend" >
+                    <span class="input-group-text"><i class="fas fa-search"></i></span>
                 </div>
+                <input #myInput [(ngModel)]="search" (input)="filterP1()"
+                name="search" type="text" class="form-control" style="width:50%">
+                <div>
+                    <ul *ngIf="this.p1 == true">
+                        <li *ngFor="let father of sPerson1; let indice = index"><a id="hola" name="hola" (click)="add(indice)">{{father.firstName}} {{father.firstLastName}}</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -45,11 +57,17 @@
         <div class="col md-4">
             <h5><span class="badge badge-light">Agregar madre</span></h5>
             <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fas fa-search"></i></span>
-                    </div>
-                    <input [ngModel]="family.mother" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-search"></i></span>
                 </div>
+                <input #myInput [(ngModel)]="search2" (input)="filterP2()"
+                name="search2" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                <div>
+                    <ul *ngIf="this.p2 == true">
+                        <li *ngFor="let father of sPerson2; let indice = index"><a id="hola" name="hola" (click)="add2(indice)">{{father.firstName}} {{father.firstLastName}}</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -63,62 +81,51 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-search"></i></span>
                     </div>
-                    <input [ngModel]="family.inCharge" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                    <input #myInput [(ngModel)]="search3" (input)="filterP3()"
+                    name="search3" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                    <div>
+                        <ul *ngIf="this.p3 == true">
+                            <li *ngFor="let father of sPerson3; let indice = index"><a id="hola" name="hola" (click)="add3(indice)">{{father.firstName}} {{father.firstLastName}}</a></li>
+                        </ul>
+                    </div>
                 </div>
         </div>
         <div class="col md-4">
             <h5 style="color:white">hola</h5>
-            <button type="button"  class="btn btn-outline-info">+</button>   
+            <button type="button" (click)="addInCharge()" class="btn btn-outline-info">+</button>   
         </div>
     </div>
 </div>
 <br>
 
 
-<button [ngModel]="save()" type="button" class="btn btn-outline-primary">Enviar formulario</button>
+<button type="button" (click)="onSubmit()" class="btn btn-outline-primary">Enviar formulario</button>
 
 </div>
 
 
-      <button hidden="true" data-toggle="modal" data-target="#exampleModalCenter"></button>
+<button hidden="true" data-toggle="modal" data-target="#exampleModalCenter"></button>
 
-      <button id="openModal" #openModal [hidden]="true" data-toggle="modal" data-target="#login-modal"></button>
+<button id="openModal" #openModal [hidden]="true" data-toggle="modal" data-target="#login-modal"></button>
 
-        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalCenterTitle">Agregar familia</h5>
-                </div>
-                <div class="modal-body" >
-                  <input [ngModel]="family.name" id="combo" required='' type='text'>
-                  <a id="dobleModal" #dobleModal data-dismiss="modal" data-toggle="modal" data-target="#search-modal" > <small  id="passwordHelpBlock" class="form-text text-muted" style="margin-left: 5%; width: 22% ">
-                    ¿Ya tienes familia?
-                  </small></a>
-                </div>
-                <div class="modal-footer">
-                  <a routerLink="/inicio"><button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button></a>
-                  <button [ngModel]="cambio()" type="button" class="btn btn-primary" data-dismiss="modal">Crear familia</button>
-                </div>
-                
-              </div>
-            </div>
-          </div>
-
-          <div class="modal fade" id="search-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalCenterTitle">Buscar familia</h5>
-                </div>
-                <div class="modal-body" >
-                  <input id="combo" required='' type='search'>
-                </div>
-                <div class="modal-footer">
-                 <a routerLink="/inicio"><button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button></a> 
-                  <button type="button" class="btn btn-primary">Buscar familia</button>
-                </div>
-                
-              </div>
-            </div>
-          </div>
+<div data-backdrop="static" data-keyboard="false" class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">{{this.tituloFa}}</h5>
+      </div>
+      <div class="modal-body" >
+        <input [(ngModel)]="this.search" id="combo" required='' type='text'>
+        <a (click)="cambio()"><small class="form-text text-muted" style="margin-left: 5%; width: 22% ">
+          {{this.preguntaFa}}
+        </small></a>
+      </div>
+      <div class="modal-footer">
+            <a routerLink="/inicio"><button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button></a>
+        <button type="button" (click)="csf1()" class="btn btn-primary">{{this.botonFa}}</button>
+        
+        <button style="display: none;" id="closeModal" #closeModal data-dismiss="modal"></button>
+      </div>
+    </div>
+  </div>
+</div>
