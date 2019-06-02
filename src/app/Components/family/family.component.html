@@ -4,7 +4,7 @@
    <!-- <div style="width:40%; margin-left:27%">-->
 <hr class="hola">
 </div>
-<div class="shadow p-3 mb-5 bg-white rounded" style="width:60%; margin-left: 20%">
+<div id="maxWidth" class="shadow p-3 mb-5 bg-white rounded">
 
 <div class="conteiner">
     <div class="row">
@@ -14,7 +14,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-search"></i></span>
                 </div>
-                <input #myInput [(ngModel)]="search4" (input)="filterP4()"
+                <input id="cambio" #myInput [(ngModel)]="search4" (input)="filterP4()"
                 name="search4" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
                 <div>
                     <ul *ngIf="this.p4 == true">
@@ -39,7 +39,7 @@
                 <div class="input-group-prepend" >
                     <span class="input-group-text"><i class="fas fa-search"></i></span>
                 </div>
-                <input #myInput [(ngModel)]="search" (input)="filterP1()"
+                <input id="cambio" #myInput [(ngModel)]="search" (input)="filterP1()"
                 name="search" type="text" class="form-control" style="width:50%">
                 <div>
                     <ul *ngIf="this.p1 == true">
@@ -60,7 +60,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-search"></i></span>
                 </div>
-                <input #myInput [(ngModel)]="search2" (input)="filterP2()"
+                <input id="cambio" #myInput [(ngModel)]="search2" (input)="filterP2()"
                 name="search2" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
                 <div>
                     <ul *ngIf="this.p2 == true">
@@ -81,7 +81,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-search"></i></span>
                     </div>
-                    <input #myInput [(ngModel)]="search3" (input)="filterP3()"
+                    <input id="cambio" #myInput [(ngModel)]="search3" (input)="filterP3()"
                     name="search3" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
                     <div>
                         <ul *ngIf="this.p3 == true">
@@ -115,17 +115,18 @@
         <h5 class="modal-title" id="exampleModalCenterTitle">{{this.tituloFa}}</h5>
       </div>
       <div class="modal-body" >
-        <input [(ngModel)]="this.search" id="combo" required='' type='text'>
-        <a (click)="cambio()"><small class="form-text text-muted" style="margin-left: 5%; width: 22% ">
+        <input [(ngModel)]="this.search" id="combo" required='' type='text' class="form-control">
+        <a (click)="cambio()"><small class="form-text text-muted" style="width: 30%">
           {{this.preguntaFa}}
         </small></a>
       </div>
       <div class="modal-footer">
-            <a routerLink="/inicio"><button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button></a>
+            <a routerLink="../Save-People"><button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button></a>
         <button type="button" (click)="csf1()" class="btn btn-primary">{{this.botonFa}}</button>
         
-        <button style="display: none;" id="closeModal" #closeModal data-dismiss="modal"></button>
+        <button style="display: none;" id="closeModal" #closeModal data-dismiss="modal" ></button>
       </div>
     </div>
   </div>
 </div>
+ <!--routerLink="../Save-People"-->

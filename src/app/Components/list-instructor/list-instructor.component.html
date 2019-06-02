@@ -21,11 +21,11 @@
           <td>{{instructor.profesion}}</td>
           <td>{{instructor.Person}}</td>
           <td > 
-            <button class="btn btn-primary" (click)="onPreUpdate(shoes)" data-toggle="modal" data-target="#modalShoes">Update</button>
+            <button class="btn btn-outline-primary" (click)="onPreUpdate(shoes)" data-toggle="modal" data-target="#modalShoes">Update</button>
           </td>
           <ng-template #noOwner>
             <td>
-              <a  class="btn btn-primary" disable ="true">Update</a>
+              <a  class="btn btn-success" disable ="true">Update</a>
             </td>
           </ng-template>
           <td *ngIf="isAdmin == true; else noAdmin">
@@ -33,7 +33,7 @@
           </td>
           <ng-template #noAdmin>
             <td>
-              <a  class="btn btn-danger" disable = "true">Delete</a>
+              <a  class="btn btn-outline-danger" disable = "true">Delete</a>
             </td>
           </ng-template>
         </tr>

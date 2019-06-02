@@ -3,13 +3,17 @@
 }
 
 h1{
-  margin-left: 35%
+  text-align: center
 }
 
 @media (max-width: 600px) {
   body {
     margin: 0 0 0 0;
   }
+}
+
+form input{
+  width: 58rem
 }
 
 #maxWidth {

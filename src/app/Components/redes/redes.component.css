@@ -5,6 +5,10 @@
     margin-top: 45px;
 }
 
+h1{
+  text-align: center
+}
+
 input[type="text"] {
     box-sizing: border-box;
     text-transform: uppercase;

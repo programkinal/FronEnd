@@ -1,9 +1,13 @@
 .class{
   width: 100%
 }
-
+#maxWidth {
+  width: 75%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
 h1{
-  text-align: center;
+  text-align: center
 }
 
 @media (max-width: 600px) {

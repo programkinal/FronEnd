@@ -20,12 +20,20 @@ ul{
       width: 100%;
   }
   
-  h1{
-      margin-left: 35%
-  }
   
   @media (max-width: 600px) {
     body {
       margin: 0 0 0 0;
     }
   }
+
+  h1{
+    text-align: center
+  }
+  #maxWidth {
+    width: 75%;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  
