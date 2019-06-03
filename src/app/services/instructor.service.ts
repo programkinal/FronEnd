@@ -21,7 +21,7 @@ export class InstructorService {
   }
 
   getInstructor(): Observable<any>{
-    return this.http.get(this.endpoint + '/searchInstructor').pipe(
+    return this.http.get(this.endpoint + '/listInstructor').pipe(
       map(this.extractData)
     );
   }
@@ -37,4 +37,9 @@ export class InstructorService {
     return this.http.post(this.endpoint + '/list', {search, search1}, this.httpOptions).pipe(map(this.extractData));
   }
 
+  updateInstructor(id, update){
+    return this.http.put(this.endpoint + '/updateInstructor/' + id, {update}, this.httpOptions).pipe(
+      map(this.extractData)
+    );
+  }
 }

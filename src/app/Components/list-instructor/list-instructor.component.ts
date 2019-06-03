@@ -34,4 +34,8 @@ export class ListInstructorComponent implements OnInit {
       }
     });
   }*/
+
+  id(_id){
+    console.log(_id);
+  }
 }

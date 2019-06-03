@@ -18,10 +18,10 @@
 
           <th scope="row"> {{i+1}}</th>
           <td>{{instructor.code}}</td>
-          <td>{{instructor.profesion}}</td>
-          <td>{{instructor.Person}}</td>
+          <td>{{instructor.profession}}</td>
+          <td>{{instructor.person}}</td>
           <td > 
-            <button class="btn btn-outline-primary" (click)="onPreUpdate(shoes)" data-toggle="modal" data-target="#modalShoes">Update</button>
+            <button class="btn btn-outline-primary" data-toggle="modal" data-target="#login-modal">Update</button>
           </td>
           <ng-template #noOwner>
             <td>
@@ -40,5 +40,52 @@
 
       </tbody>
     </table>
+  </div>
+</div>
+
+<!--*************************************UPDATE************************************-->
+
+<button hidden="true" ></button>
+
+<button id="openModal" #openModal [hidden]="true" data-toggle="modal" data-target="#login-modal"></button>
+
+<div data-backdrop="static" data-keyboard="false" class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Update Instructor</h5>
+      </div>
+      <div class="modal-body" >
+        <input [(ngModel)]="this.search" id="combo" required='' type='text' class="form-control">
+        <a><small class="form-text text-muted" style="width: 30%">
+          aaa
+        </small></a>
+      </div>
+      <div class="col md-4">
+        <form>
+          <select class="form-control" required="" class="custom-select">
+            <option value="" hidden></option>
+            <option>Ingeniero</option>
+            <option></option>
+            <option></option>
+            <option></option>
+            <option></option>
+            <option></option>
+          </select>
+          <label for="Carrera" alt='Carrera' placeholder='Carrera'></label>
+          <div class="invalid-feedback">
+            <div>
+              Seleccione la carrera
+            </div>
+          </div>
+        </form>   
+      </div>
+      <div class="modal-footer">
+            <a routerLink="../Save-People"><button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button></a>
+        <button type="button" class="btn btn-primary">bbbb</button>
+        
+        <button style="display: none;" id="closeModal" #closeModal data-dismiss="modal" ></button>
+      </div>
+    </div>
   </div>
 </div>
