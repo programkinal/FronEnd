@@ -8,6 +8,7 @@ import { Redes } from '../../models/redes';
 })
 export class ListarRedesComponent implements OnInit {
   redes: Redes;
+  nombres = [];
   search1: string = '';
   ss = [];
   results = [];
@@ -23,6 +24,10 @@ export class ListarRedesComponent implements OnInit {
     this.rest.getRedes().subscribe(res =>{
       this.redes = res.redes;
       console.log(this.redes);
+      // this.redes.career
+      res.name.forEach(element => {
+        this.nombres.push(element);
+      });
     });
   }
 
