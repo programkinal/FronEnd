@@ -25,13 +25,9 @@
           <td>{{red.dateInit}}</td>
           <td>{{red.dateFinal}}</td>
           <td > 
-            <button class="btn btn-outline-success" routerLink="animalSave">Update</button>
+            <button class="btn btn-outline-success" (click)="update(red)"  >Update</button>
           </td>
-          <ng-template #noOwner>
-            <td>
-              <a  class="btn btn-success" routerLink="animalSave" disable ="true">Update</a>
-            </td>
-          </ng-template>
+          
           <td>
             <a  class="btn btn-outline-danger">Delete</a>
           </td>
