@@ -32,6 +32,7 @@ import { RedesComponent } from './Components/redes/redes.component';
 import { InstructoresComponent } from './Components/instructores/instructores.component';
 import { ListInstructorComponent } from './Components/list-instructor/list-instructor.component';
 import { ListarRedesComponent } from './Components/listar-redes/listar-redes.component';
+import { FilterCoursePipe } from './pipes/filter-course.pipe';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { ListarRedesComponent } from './Components/listar-redes/listar-redes.com
     RedesComponent,
     InstructoresComponent,
     ListInstructorComponent,
-    ListarRedesComponent
+    ListarRedesComponent,
+    FilterCoursePipe
   ],
   imports: [
     BrowserModule,
