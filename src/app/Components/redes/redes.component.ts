@@ -35,7 +35,7 @@ export class RedesComponent implements OnInit {
     this.rest.setRedes(this.redes);
     this.redes = new Redes('','','','');
   }
-
+  
   
 
   ngOnInit() {

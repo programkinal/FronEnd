@@ -1,5 +1,7 @@
 <div id="maxWidth" >
-        <h1 class="display-4">Ingrese los datos</h1>
+        <h1 class="display-4">
+            {{ this.params.snapshot.params.id != ':id'? 'Actualizar Red de estudio' : 'Agregar Red de estudio' }}
+        </h1>
         <div style="width:80%; margin-left:12%">
            <!-- <div style="width:40%; margin-left:27%">-->
         <hr class="hola">
