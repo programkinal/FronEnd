@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Redes } from '../models/redes';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,7 +17,9 @@ export class RedesService {
   mensaje = 'Ejecutando el guardar';
 
   constructor(private http: HttpClient) { }
-
+  // public selectedRedes: Redes = {
+  //   id: null
+  // };
   private extractData(res: Response) {
     let body = res;
     return body || [ ] || { };
@@ -52,5 +55,21 @@ export class RedesService {
     return this.http.post(this.endpoint + '/SearchCareer', {id}, this.httpOptions).pipe(
       map(this.extractData)
     );
+  }
+  buscandoRedes(id): Observable<any>{
+    return this.http.get(this.endpoint + '/BuscarRedes/' +id, this.httpOptions).pipe(
+      map(this.extractData)
+    )
+  }
+  updateRedes(updaate_Redes, id): Observable<any>{
+    let params = JSON.stringify(updaate_Redes);
+    return this.http.put(this.endpoint + '/updateRedes/' + id, params, this.httpOptions).pipe(
+      map(this.extractData)
+    )
+  }
+  deleteRedes(id): Observable<any>{
+    return this.http.put(this.endpoint + '/deleteRedes/' + id, this.httpOptions).pipe(
+      map(this.extractData)
+    )
   }
 }

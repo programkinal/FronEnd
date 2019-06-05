@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RedesService } from '../../services/redes.service';
 import { Redes } from '../../models/redes';
-import { RouterModule, Router } from '@angular/router';
+import {  Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-listar-redes',
   templateUrl: './listar-redes.component.html',
@@ -13,7 +14,7 @@ export class ListarRedesComponent implements OnInit {
   search1: string = '';
   idRedes = [];
   results = [];
-  constructor(public rest: RedesService,public router: Router) { 
+  constructor(public rest: RedesService,public router: Router, private tostr: ToastrService) { 
 
   }
 
@@ -24,18 +25,23 @@ export class ListarRedesComponent implements OnInit {
   getRedes(){
     this.rest.getRedes().subscribe(res =>{
       this.redes = res.redes;
-      // console.log(res.redes._id);
-      // console.log(idredes);
-      // this.redes.career
       res.name.forEach(element => {
         this.nombres.push(element);
       });
     });
   }
   update(red){
-    console.log(red._id)
-    this.router.navigateByUrl('redes');
-    
+    this.router.navigateByUrl('redes/'+ red._id);
+  }
+  delete(red){
+    this.rest.deleteRedes(red._id).subscribe(res =>{
+      if(res.message == 'No se pudo eliminar'){
+        this.tostr.error('No se pudo eliminar', 'Error');
+      }else{
+        this.tostr.success('Se elimino correctamente','Eliminado')
+        this.getRedes();
+      }
+    })
   }
 
 
