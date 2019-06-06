@@ -1,6 +1,6 @@
 <div class="row mt-5" >
   <div class="col">
-      <button  class="btn btn-outline-primary float-right mb-3" routerLink="../redes" >Nueva Red de estudio</button>
+      <button  class="btn btn-outline-primary float-right mb-3" routerLink="../redes/:id" >Nueva Red de estudio</button>
     <div class="input-group mb-3" style="width: 200px;">
     </div> 
     <table class="table table-hover">
@@ -17,29 +17,20 @@
       </thead>
       <tbody>
         
-        <tr *ngFor="let red of redes;  index as i">
+        <tr *ngFor="let red of redes;let nombre of nombres;  index as i" >
 
           <th scope="row">{{i+1}}</th>
           <td>{{red.name}}</td>
-          <td>{{red.career}}</td>
+          <td>{{nombres[i]}}</td>
           <td>{{red.dateInit}}</td>
           <td>{{red.dateFinal}}</td>
           <td > 
-            <button class="btn btn-outline-success" routerLink="animalSave">Update</button>
+            <button class="btn btn-outline-success" (click)="update(red)"  >Update</button>
           </td>
-          <ng-template #noOwner>
-            <td>
-              <a  class="btn btn-success" routerLink="animalSave" disable ="true">Update</a>
-            </td>
-          </ng-template>
-          <td *ngIf="isAdmin == true; else noAdmin">
-            <a  class="btn btn-outline-danger">Delete</a>
+          
+          <td>
+            <a  class="btn btn-outline-danger" (click)="delete(red)">Delete</a>
           </td>
-          <ng-template #noAdmin>
-            <td>
-              <a  class="btn btn-outline-danger" disable = "true">Delete</a>
-            </td>
-          </ng-template>
         </tr>
 
       </tbody>

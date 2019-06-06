@@ -4,6 +4,9 @@ import {FormControl, Validators } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Redes } from 'src/app/models/redes';
+import { ListarRedesComponent } from '../listar-redes/listar-redes.component';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -28,15 +31,26 @@ export class RedesComponent implements OnInit {
   @ViewChild('select') select:ElementRef;
   @ViewChild('router1') router:ElementRef;
 
-  constructor(public rest: RedesService,private toastr: ToastrService) {
+  constructor(public rest: RedesService,private toastr: ToastrService, private params: ActivatedRoute, private routerLink: Router) {
     this.rest.setRedes(this.redes);
     this.redes = new Redes('','','','');
   }
-
+  
   
 
   ngOnInit() {
     this.getCareer();
+    if(this.params.snapshot.params.id != ':id'){
+      this.rest.buscandoRedes(this.params.snapshot.params.id).subscribe(res =>{
+        this.redes.name = res.buscado.name
+        this.redes.career = res.buscado.career
+        this.redes.dateInit = res.buscado.dateInit
+        this.redes.dateFinal = res.buscado.dateFinal
+      })
+    }else{
+      this.redes = new Redes('','','','');
+    }
+    
   }
 
   getCareer(){
@@ -48,28 +62,41 @@ export class RedesComponent implements OnInit {
     });
   }
   onSubmit(){
-
-   
-    this.rest.setRedes(this.redes).subscribe(res => {
-      console.log(res)
-      if(res.message == 'Debes de llenar todos los campos'){
-        this.toastr.error('Debes de llenar todos los campos', 'Error');
-      }else{
-        if(res.Guardado && res.Guardado._id){
-          this.toastr.success('Se ha guardado exitosamente!', 'Guardado');
-          this.openModal.nativeElement.click();
-          console.log(this.redes)
-        }else if(res.message == 'La red de estudio ya esta registrada'){
-          this.toastr.error('La red ingresada ya esta registrada en el sistema', 'Error');
-        }else if(res.message == 'Debes de llenar todos los campos'){
+    if(this.params.snapshot.params.id == ':id'){
+      this.rest.setRedes(this.redes).subscribe(res => {
+        console.log(res)
+        if(res.message == 'Debes de llenar todos los campos'){
           this.toastr.error('Debes de llenar todos los campos', 'Error');
-        }else if(res.message == 'La fecha no puede ser la misma que la inicial'){
-          this.toastr.error('La fecha no puede ser la misma que la inicial','Error');
-        }else if(res.message == 'La Fecha final es antes que la fecha de incio'){
-          this.toastr.error('La Fecha final es antes que la fecha de incio', 'Erorr')
+        }else{
+          if(res.Guardado && res.Guardado._id){
+            this.toastr.success('Se ha guardado exitosamente!', 'Guardado');
+            this.openModal.nativeElement.click();
+            this.routerLink.navigateByUrl('List-Redes');
+            console.log(this.redes)
+          }else if(res.message == 'La red de estudio ya esta registrada'){
+            this.toastr.error('La red ingresada ya esta registrada en el sistema', 'Error');
+          }else if(res.message == 'Debes de llenar todos los campos'){
+            this.toastr.error('Debes de llenar todos los campos', 'Error');
+          }else if(res.message == 'La fecha no puede ser la misma que la inicial'){
+            this.toastr.error('La fecha no puede ser la misma que la inicial','Error');
+          }else if(res.message == 'La Fecha final es antes que la fecha de incio'){
+            this.toastr.error('La Fecha final es antes que la fecha de incio', 'Erorr')
+          }
         }
-      }
-    });
+      });
+    }else{
+      this.rest.updateRedes(this.redes,this.params.snapshot.params.id).subscribe(res=>{
+        if(res.message == 'No se pudo actualizar'){
+          this.toastr.error('No se pudo actualizar','Error');
+        }else{
+          if(res.actualizado &&  res.actualizado._id){
+            this.toastr.success('Se ha actualizado exitosamente!','Actualizado');
+            this.routerLink.navigateByUrl('List-Redes');
+          }
+        }
+      })
+    }
+    
   }
 
 }

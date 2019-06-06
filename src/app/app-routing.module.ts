@@ -19,7 +19,7 @@ import { ListarRedesComponent } from './Components/listar-redes/listar-redes.com
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'List-Redes', component: ListarRedesComponent},
-  {path: 'redes', component: RedesComponent},
+  {path: 'redes/:id', component: RedesComponent},
   {path: 'listInstructor', component: ListInstructorComponent},
   {path: 'instructores', component: InstructoresComponent},
   {path: 'Save-People', component: PeopleComponent},

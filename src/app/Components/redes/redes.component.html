@@ -1,5 +1,7 @@
 <div id="maxWidth" >
-        <h1 class="display-4">Ingrese los datos</h1>
+        <h1 class="display-4">
+            {{ this.params.snapshot.params.id != ':id'? 'Actualizar Red de estudio' : 'Agregar Red de estudio' }}
+        </h1>
         <div style="width:80%; margin-left:12%">
            <!-- <div style="width:40%; margin-left:27%">-->
         <hr class="hola">
@@ -9,6 +11,7 @@
         <div class="conteiner">
             <div class="row">
                 <div class="col md-4">
+                    <!-- <input type="text" name="id" [(ngModel)]="this.rest.selectedRedes.id"> -->
                     <form name="form" [formGroup]="form">
                   <input name="name" type="text" class="form-control" formControlName="name" [ngClass]="{'is-invalid': 
                   form.get('name').touched && form.get('name').invalid}" required=''  [(ngModel)]="this.redes.name">
