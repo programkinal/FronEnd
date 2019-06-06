@@ -32,13 +32,22 @@ export class InstructorService {
       map(this.extractData)
     );
   }
-  searchInstructor(search, search1): Observable<any>{
-    console.log('Funciona buscardor');
-    return this.http.post(this.endpoint + '/list', {search, search1}, this.httpOptions).pipe(map(this.extractData));
+
+  searchInstructor(id): Observable<any>{
+    return this.http.post(this.endpoint + '/searchInstructor/' + id, this.httpOptions).pipe(
+      map(this.extractData)
+    );
   }
 
-  updateInstructor(id, update){
-    return this.http.put(this.endpoint + '/updateInstructor/' + id, {update}, this.httpOptions).pipe(
+  updateInstructor(id, update): Observable<any>{
+    let params = JSON.stringify(update);
+    return this.http.put(this.endpoint + '/updateInstructor/' + id, params, this.httpOptions).pipe(
+      map(this.extractData)
+    );
+  }
+
+  deleteInstructor(id): Observable<any>{
+    return this.http.put(this.endpoint + '/deleteInstructor/' + id, this.httpOptions).pipe(
       map(this.extractData)
     );
   }

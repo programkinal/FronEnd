@@ -1,6 +1,6 @@
 <div class="row mt-5">
   <div class="col">
-      <button type="button" class="btn btn-outline-primary float-right mb-3" routerLink="../instructores" >Nuevo instructor</button>
+      <button type="button" class="btn btn-outline-primary float-right mb-3" routerLink="../instructores/:id" >Nuevo instructor</button>
     <table class="table table-hover">
       <thead>
         <tr>
@@ -18,74 +18,29 @@
 
           <th scope="row"> {{i+1}}</th>
           <td>{{instructor.code}}</td>
-          <td>{{instructor.profession}}</td>
-          <td>{{instructor.person}}</td>
+          <td>{{instructor.profesion}}</td>
+          <td>{{instructor.Person}}</td>
           <td > 
-            <button class="btn btn-outline-primary" data-toggle="modal" data-target="#login-modal">Update</button>
+            <button class="btn btn-outline-primary" (click)="update(instructor)">Update</button>
           </td>
-          <ng-template #noOwner>
-            <td>
-              <a  class="btn btn-success" disable ="true">Update</a>
-            </td>
-          </ng-template>
-          <td *ngIf="isAdmin == true; else noAdmin">
-            <a  class="btn btn-danger" (click)="onDeleteShoes(shoes.id)">Delete</a>
+          <td>
+            <button  class="btn btn-outline-danger" data-toggle="modal" data-target="#login-modal">Delete</button>
+            <div data-backdrop="static" data-keyboard="false" class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">¿Está seguro de eliminar este regristro?</h5>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="delete(instructor)">Sí</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </td>
-          <ng-template #noAdmin>
-            <td>
-              <a  class="btn btn-outline-danger" disable = "true">Delete</a>
-            </td>
-          </ng-template>
         </tr>
-
       </tbody>
     </table>
-  </div>
-</div>
-
-<!--*************************************UPDATE************************************-->
-
-<button hidden="true" ></button>
-
-<button id="openModal" #openModal [hidden]="true" data-toggle="modal" data-target="#login-modal"></button>
-
-<div data-backdrop="static" data-keyboard="false" class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenterTitle">Update Instructor</h5>
-      </div>
-      <div class="modal-body" >
-        <input [(ngModel)]="this.search" id="combo" required='' type='text' class="form-control">
-        <a><small class="form-text text-muted" style="width: 30%">
-          aaa
-        </small></a>
-      </div>
-      <div class="col md-4">
-        <form>
-          <select class="form-control" required="" class="custom-select">
-            <option value="" hidden></option>
-            <option>Ingeniero</option>
-            <option></option>
-            <option></option>
-            <option></option>
-            <option></option>
-            <option></option>
-          </select>
-          <label for="Carrera" alt='Carrera' placeholder='Carrera'></label>
-          <div class="invalid-feedback">
-            <div>
-              Seleccione la carrera
-            </div>
-          </div>
-        </form>   
-      </div>
-      <div class="modal-footer">
-            <a routerLink="../Save-People"><button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button></a>
-        <button type="button" class="btn btn-primary">bbbb</button>
-        
-        <button style="display: none;" id="closeModal" #closeModal data-dismiss="modal" ></button>
-      </div>
-    </div>
   </div>
 </div>
