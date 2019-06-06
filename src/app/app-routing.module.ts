@@ -14,6 +14,7 @@ import { RedesComponent } from './Components/redes/redes.component';
 import { InstructoresComponent } from './Components/instructores/instructores.component';
 import { ListInstructorComponent } from './Components/list-instructor/list-instructor.component';
 import { ListarRedesComponent } from './Components/listar-redes/listar-redes.component';
+import { AssingmentComponent } from './Components/assingment/assingment.component';
 
 
 const routes: Routes = [
@@ -28,7 +29,8 @@ const routes: Routes = [
   {path: 'Save-Course', component: CoursesComponent},
   {path: 'List-Course', component: CoursesListComponent},
   {path: 'Add-family', component: FamilyComponent},
-  {path: 'List-Career', component: CareersListComponent}
+  {path: 'List-Career', component: CareersListComponent},
+  {path: 'assingment', component: AssingmentComponent}
 ];
 
 @NgModule({

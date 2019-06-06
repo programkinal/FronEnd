@@ -1,0 +1,55 @@
+<div id="maxWidth" >
+  <h1 class="display-4">
+      Asignacion de Jornada y Seccion 
+  </h1>
+  <div style="width:75%; margin-left:13%">
+  <hr class="hola">
+  </div>
+  <div class="shadow p-3 mb-5 bg-white rounded" style="width:75%; margin-left: 13%">
+  <br>
+  <div class="conteiner" style="">
+      <div class="row">
+        <div class="col md-4">
+          <form name="form" [formGroup]="form">
+              <select  class="form-control" formControlName="Jornada" required="" class="custom-select">
+                  <option value="" hidden></option>
+                  <option >Matutina</option>
+                  <option >Vespertina</option>
+              </select>
+              <label for="Jornada" alt='Jornada' placeholder='Jornada'></label>
+              <div class="invalid-feedback">
+                <div>
+                    Seleccione la Jornada
+                </div>
+            </div>
+          </form>   
+      </div>
+          <div class="col md-4" style="">
+            <form name="form" [formGroup]="form">
+                <select  class="form-control" formControlName="Seccion"  required="" class="custom-select">
+                    <option value="" hidden></option>
+                    <option >A</option>
+                    <option >B</option>
+                    <option >C</option>
+                    <option >D</option>
+                    <option >E</option>
+                    <option >F</option>
+                    <option >G</option>
+                    <option >H</option>
+                </select>
+                <label for="Seccion" alt='Seccion' placeholder='Seccion'></label>
+                <div class="invalid-feedback">
+                  <div>
+                      Seleccione la Seccion
+                  </div>
+              </div>
+            </form>   
+        </div>
+      </div>
+  </div>
+<hr>
+    <button type="button" style="margin-left: 70%" class="btn btn-outline-primary float-right mb-3" (click)="onSubmit()" >Enviar formulario</button>  
+   <br>
+   <br>
+  </div>
+  </div>
