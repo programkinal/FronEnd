@@ -47,8 +47,43 @@
         </div>
       </div>
   </div>
+  <div class="conteiner">
+    <div class="row">
+      <div class="col md-4">
+        <form name="form" [formGroup]="form">
+            <select  class="form-control" formControlName="Jornada" required="" class="custom-select">
+                <option value="" hidden></option>               
+                <option >en este option se empiezan a agregar</option>
+            </select>
+            <label for="Instructor" alt='Instructor' placeholder='Instructor'></label>
+            <div class="invalid-feedback">
+              <div>
+                  Seleccione el  Instructor
+              </div>
+          </div>
+        </form>   
+    </div>
+    <div class="col md-4">
+      <!-- tome el Seleccionar carrera de redes de estudio ya que es lo mismo -->
+      <form name="form" [formGroup]="form">
+          <select [(ngModel)]="this.redes.career" class="form-control" formControlName="career" [ngClass]="{'is-invalid': 
+          form.get('career').touched && form.get('career').invalid}"  required="" class="custom-select">
+              <option value="" hidden></option>
+              <option value="{{carrera._id}}" *ngFor="let carrera of careers" >{{carrera.name}}</option>
+          </select>
+          <label for="Carrera" alt='Carrera' placeholder='Carrera'></label>
+          <div class="invalid-feedback">
+            <div>
+                Seleccione la carrera
+            </div>
+        </div>
+      </form>   
+  </div>
+    </div>
+</div>
 <hr>
-    <button type="button" style="margin-left: 70%" class="btn btn-outline-primary float-right mb-3" (click)="onSubmit()" >Enviar formulario</button>  
+    <button type="button" style="margin-left: 70%" class="btn btn-outline-primary float-right mb-3" (click)="onSubmit()" >Enviar formulario</button>
+      
    <br>
    <br>
   </div>
