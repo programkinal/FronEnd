@@ -22,7 +22,7 @@ const routes: Routes = [
   {path: 'List-Redes', component: ListarRedesComponent},
   {path: 'redes/:id', component: RedesComponent},
   {path: 'listInstructor', component: ListInstructorComponent},
-  {path: 'instructores', component: InstructoresComponent},
+  {path: 'instructores/:id', component: InstructoresComponent},
   {path: 'Save-People', component: PeopleComponent},
   {path: 'Save-Units-Academic', component: UnitsComponent},
   {path: 'Save-Career-Educative', component: CareerComponent},

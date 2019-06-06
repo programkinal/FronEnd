@@ -14,6 +14,15 @@
                     <input class="form-control" formControlName="code" [ngClass]="{'is-invalid': 
                     form.get('code').touched && form.get('code').invalid}" required='' type='text' [(ngModel)]="instructor.code">
                     <label alt='Codigo instructor' placeholder='Codigo instructor'></label>
+                    <!--
+                    <input id="cambio" #myInput [(ngModel)]="search2" (input)="filterP2()"
+                    name="search2" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                    <div>
+                        <ul *ngIf="this.p2 == true">
+                            <li *ngFor="let father of sPerson2; let indice = index"><a id="hola" name="hola" (click)="add2(indice)">{{father.firstName}} {{father.firstLastName}}</a></li>
+                        </ul>
+                    </div>
+                    -->
                 </form>
                 <div class="invalid-feedback">
                   <div>
