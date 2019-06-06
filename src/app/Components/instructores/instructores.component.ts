@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators, FormGroup } from '@angular/forms';
 import { Instructor } from '../../models/instructor';
 import { InstructorService } from '../../services/instructor.service';
-import { validateConfig } from '@angular/router/src/config';
 import { ToastrService } from 'ngx-toastr';
-import { isRegExp } from 'util';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -19,6 +17,11 @@ export class InstructoresComponent implements OnInit {
     profesion: new FormControl('', Validators.required),
     Person: new FormControl('', Validators.required),
   });
+  search = '';
+  ins = [];
+  insFil = [];
+  select;
+
   constructor(public rest: InstructorService, private toastr: ToastrService,private params: ActivatedRoute, private routerLink: Router) { 
     this.rest.setInstructor(this.instructor);
     this.instructor = new Instructor('','','')
@@ -34,6 +37,29 @@ export class InstructoresComponent implements OnInit {
     }else{
       this.instructor = new Instructor('','','');
     }
+    this.getPerson();
+  }
+
+  getPerson(){
+    this.rest.getPerson().subscribe(res => {
+      this.ins = res.persons;
+      this.insFil = res.persons;
+    });
+  }
+
+  filter(){
+    console.log(this.insFil);
+    let person = this.ins.filter(encontrado => {
+      return (encontrado.firstName.indexOf(this.search.toUpperCase())>-1 ||
+      encontrado.firstLastName.indexOf(this.search)>-1)
+    });
+    this.insFil = person;
+  }
+
+  add(id, name, lastName){
+    this.instructor.Person = id;
+    this.search = name + ' ' + lastName;
+    this.insFil = [];
   }
 
   onSumit(){
@@ -42,15 +68,15 @@ export class InstructoresComponent implements OnInit {
         if(res.message == 'Llene todos los campos'){
           this.toastr.error('Llenar todos los campos');
         }else{
-          if(res.Instructor && res.Instructor_id){
+          if(res.message == 'El codigo ya fue registrado'){
+            this.toastr.error('El codigo ya fue registrado', 'Error');
+          }else{
             console.log('Se guardo');
             this.toastr.success('Se han guardado los datos exitosamente', 'Guardar');
-            this.instructor.code = ''
-            this.instructor.profesion = ''
-            this.instructor.Person = ''
-  
-          }else if(res.message == 'El codigo ya fue registrado'){
-            this.toastr.error('El codigo ya fue registrado', 'Error');
+            this.instructor.code = '';
+            this.instructor.profesion = '';
+            this.instructor.Person = '';
+            this.search = '';
           }
         }
       });

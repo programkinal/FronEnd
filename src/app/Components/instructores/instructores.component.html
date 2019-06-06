@@ -40,9 +40,16 @@
         <div class="col md-4">
             <br>
             <form name="form" [formGroup]="form">
-                <input id="name" class="form-control" formControlName="Person" [ngClass]="{'is-invalid': 
-                form.get('Person').touched && form.get('Person').invalid}" required='' type='text' [(ngModel)]="instructor.Person">
-                <label alt='Informacion personal' placeholder='Informacion personal'></label>
+                <input id="name" class="form-control" formControlName="Person" autocomplete="off" [ngClass]="{'is-invalid': 
+                form.get('Person').touched && form.get('Person').invalid}" required='' type='text' (input)="filter()" [(ngModel)]="search">
+                <label alt='Nombre del instructor' placeholder='Informacion personal'></label>
+                <div>
+                    <ul *ngIf="search != ''">
+                        <li *ngFor="let person of insFil"><a id="hola" name="hola" (click)="add(person._id, person.firstName, person.firstLastName)">{{person.firstName}} | {{person.firstLastName}}</a></li>
+                    </ul>
+                </div>
+                
+
             </form>
             <div class="invalid-feedback">
               <div>
