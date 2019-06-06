@@ -21,7 +21,13 @@ export class InstructorService {
   }
 
   getInstructor(): Observable<any>{
-    return this.http.get(this.endpoint + '/listInstructor').pipe(
+    return this.http.get(this.endpoint + '/listInstructor', this.httpOptions).pipe(
+      map(this.extractData)
+    );
+  }
+
+  getPerson(): Observable<any>{
+    return this.http.get(this.endpoint + '/listPerson', this.httpOptions).pipe(
       map(this.extractData)
     );
   }
