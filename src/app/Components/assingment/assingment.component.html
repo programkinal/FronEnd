@@ -53,13 +53,16 @@
     <div class="row">
       <div class="col md-4">
         <form name="form" [formGroup]="form">
-            <select  class="form-control" formControlName="course" required="" class="custom-select" [(ngModel)]="this.assignment.course"
+            <div class="col md-4">
+              <select  class="form-control" formControlName="course" required="" class="custom-select" [(ngModel)]="this.assignment.course"
               [ngClass]="{'is-invalid': 
               form.get('course').touched && form.get('course').invalid}"  required="" class="custom-select">
                 <option value="" hidden></option>               
                 <option value="{{curso._id}}" *ngFor="let curso of courses">{{curso.name}}</option>
-            </select>
-            <label for="course" alt='Curso' placeholder='Curso'></label>
+              </select>
+              <label for="course" alt='Curso' placeholder='Curso'></label>
+              <button type="button" class="btn btn-outline-info" style="margin-left:5%; margin-bottom: 1%"  (click)="addCourse()">+</button>
+            </div>
             <div class="invalid-feedback">
               <div>
                   Seleccione el curso

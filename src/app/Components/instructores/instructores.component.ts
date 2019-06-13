@@ -21,6 +21,7 @@ export class InstructoresComponent implements OnInit {
   ins = [];
   insFil = [];
   select;
+  person: boolean = false;
 
   constructor(public rest: InstructorService, private toastr: ToastrService,private params: ActivatedRoute, private routerLink: Router) { 
     this.rest.setInstructor(this.instructor);
@@ -54,12 +55,14 @@ export class InstructoresComponent implements OnInit {
       encontrado.firstLastName.indexOf(this.search)>-1)
     });
     this.insFil = person;
+    this.person = true;
   }
 
   add(id, name, lastName){
     this.instructor.Person = id;
     this.search = name + ' ' + lastName;
     this.insFil = [];
+    this.person = false;
   }
 
   onSumit(){

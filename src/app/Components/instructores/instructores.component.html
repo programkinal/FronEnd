@@ -44,7 +44,7 @@
                 form.get('Person').touched && form.get('Person').invalid}" required='' type='text' (input)="filter()" [(ngModel)]="search">
                 <label alt='Nombre del instructor' placeholder='Informacion personal'></label>
                 <div>
-                    <ul *ngIf="search != ''">
+                    <ul *ngIf="person != false">
                         <li *ngFor="let person of insFil"><a id="hola" name="hola" (click)="add(person._id, person.firstName, person.firstLastName)">{{person.firstName}} | {{person.firstLastName}}</a></li>
                     </ul>
                 </div>

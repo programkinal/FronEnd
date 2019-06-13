@@ -15,6 +15,8 @@ export class AssingmentComponent implements OnInit {
   careers = [];
   courses = [];
   nameInstructor = [];
+
+
   form = new FormGroup({
     name: new FormControl('', Validators.required),
     career: new FormControl('', Validators.required),
@@ -70,10 +72,15 @@ export class AssingmentComponent implements OnInit {
   getInstructor(){
     this.rest.getInstructor().subscribe(res =>{
       // console.log(res.persona);
-      for(let i = 0; i< res.persona.length; i++){
-        this.nameInstructor.push(res.persona[i]);
-        // console.log(this.nameInstructor)
+      for(let i = 0; i< res.instructor.length; i++){
+        this.nameInstructor.push(res.instructor[i]);
+        
       }
+      console.log(res.instructor) 
     })
+  }
+
+  addCourse(){
+    
   }
 }
