@@ -20,8 +20,7 @@ export class InstructoresComponent implements OnInit {
   search = '';
   ins = [];
   insFil = [];
-  select;
-  person: boolean = false;
+  select = '';
 
   constructor(public rest: InstructorService, private toastr: ToastrService,private params: ActivatedRoute, private routerLink: Router) { 
     this.rest.setInstructor(this.instructor);
@@ -49,20 +48,19 @@ export class InstructoresComponent implements OnInit {
   }
 
   filter(){
-    console.log(this.insFil);
     let person = this.ins.filter(encontrado => {
       return (encontrado.firstName.indexOf(this.search.toUpperCase())>-1 ||
       encontrado.firstLastName.indexOf(this.search)>-1)
     });
     this.insFil = person;
-    this.person = true;
+    this.select = this.search;
   }
 
   add(id, name, lastName){
     this.instructor.Person = id;
     this.search = name + ' ' + lastName;
     this.insFil = [];
-    this.person = false;
+    this.select = '';
   }
 
   onSumit(){
@@ -75,6 +73,7 @@ export class InstructoresComponent implements OnInit {
             this.toastr.error('El codigo ya fue registrado', 'Error');
           }else{
             console.log('Se guardo');
+            this.routerLink.navigateByUrl('/listInstructor');
             this.toastr.success('Se han guardado los datos exitosamente', 'Guardar');
             this.instructor.code = '';
             this.instructor.profesion = '';
