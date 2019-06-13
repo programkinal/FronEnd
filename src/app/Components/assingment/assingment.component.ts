@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AssignmentServicesService } from '../../services/assignment-services.service';
 import { ToastrService } from 'ngx-toastr';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute} from '@angular/router';
 import { Router } from '@angular/router';
 import { Assignment } from 'src/app/models/assignment';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
@@ -15,6 +15,8 @@ export class AssingmentComponent implements OnInit {
   careers = [];
   courses = [];
   nameInstructor = [];
+  curso = '';
+
   form = new FormGroup({
     name: new FormControl('', Validators.required),
     career: new FormControl('', Validators.required),
@@ -25,7 +27,7 @@ export class AssingmentComponent implements OnInit {
   });
   constructor(private rest: AssignmentServicesService, private tostr: ToastrService, private params: ActivatedRoute, private routerLink: Router) { 
     this.rest.setAssignment(this.assignment);
-    this.assignment = new Assignment('','','','','');
+    this.assignment = new Assignment('','','',[],'');
   }
 
   ngOnInit() {
@@ -41,9 +43,11 @@ export class AssingmentComponent implements OnInit {
       }else{
         if(res.Guardado && res.Guardado._id){
           this.tostr.success('Se ha guardado correctamet','Guardar');
-          this.routerLink.navigateByUrl('List-Redes');
+          this.routerLink.navigateByUrl('List-Assignment');
         }else if(res.message == 'La Asignatura ya fue registrada'){
           this.tostr.error('La Asignatura ya fue registrada','Error')
+        }else if(res.message == 'Debes de llenar todos los campos'){
+          this.tostr.error('Debes de llenar todos los campos','Error');
         }
       }
     })
@@ -68,10 +72,18 @@ export class AssingmentComponent implements OnInit {
   getInstructor(){
     this.rest.getInstructor().subscribe(res =>{
       // console.log(res.persona);
-      for(let i = 0; i< res.persona.length; i++){
-        this.nameInstructor.push(res.persona[i]);
-        // console.log(this.nameInstructor)
+      for(let i = 0; i< res.instructor.length; i++){
+        this.nameInstructor.push(res.instructor[i]);
+        
       }
     })
+  }
+
+  addCourse(){
+    if(this.assignment.course.includes(this.curso)){
+      this.tostr.error('El curso ya ha sido ingresado','Error')
+    }else{
+      this.assignment.course.push(this.curso);
+    }
   }
 }

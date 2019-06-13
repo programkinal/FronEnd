@@ -25,9 +25,6 @@ export class ListarRedesComponent implements OnInit {
   getRedes(){
     this.rest.getRedes().subscribe(res =>{
       this.redes = res.redes;
-      res.name.forEach(element => {
-        this.nombres.push(element);
-      });
     });
   }
   update(red){

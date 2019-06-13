@@ -15,6 +15,7 @@ import { InstructoresComponent } from './Components/instructores/instructores.co
 import { ListInstructorComponent } from './Components/list-instructor/list-instructor.component';
 import { ListarRedesComponent } from './Components/listar-redes/listar-redes.component';
 import { AssingmentComponent } from './Components/assingment/assingment.component';
+import { AssignmentListComponent } from './Components/assignment-list/assignment-list.component';
 
 
 const routes: Routes = [
@@ -30,7 +31,8 @@ const routes: Routes = [
   {path: 'List-Course', component: CoursesListComponent},
   {path: 'Add-family', component: FamilyComponent},
   {path: 'List-Career', component: CareersListComponent},
-  {path: 'assingment', component: AssingmentComponent}
+  {path: 'Save-assingment', component: AssingmentComponent},
+  {path: 'List-Assignment', component: AssignmentListComponent}
 ];
 
 @NgModule({

@@ -1,30 +1,35 @@
 <div class="row mt-5">
   <div class="col">
-    <input type="text" class="form-control" (input)="filter()" name="buscar" [(ngModel)]="search" placeholder="Search in me...">
-    <button type="button" class="btn btn-outline-primary float-right mb-3" routerLink="../Save-Course" >Nuevo Curso</button>
+    <button type="button" class="btn btn-outline-primary float-right mb-3" routerLink="../Save-assingment" >Nueva Asignacion</button>
     <table class="table table-hover">
       <thead>
         <tr>
-          <th scope="col">Code</th>
-          <th scope="col">Name</th>
-          <th scope="col">Descripcion</th>
+          <th scope="col">#</th>
+          <th scope="col">Instrucor</th>
+          <th scope="col">Sección</th>
+          <th scope="col">Curso</th>
+          <th scope="col">Carrera</th>
+          <th scope="col">Jornada</th>
           <th scope="col">&nbsp;</th>
           <th scope="col">&nbsp;</th>
         </tr>
       </thead>
       <tbody>
         
-        <tr *ngFor="let course of results" >
+        <tr *ngFor="let Asignacion of assignment;index as i">
 
-          <td>{{course.code}}</td>
-          <td>{{course.name}}</td>
-          <td>{{course.description}}</td>
+          <th scope="row"> {{i+1}}</th>
+          <td>{{Asignacion.instructor.firstName + ' ' + Asignacion.instructor.firstLastName}}</td>
+          <td>{{Asignacion.section}}</td>
+          <td>{{Asignacion.course.name}}</td>
+          <td>{{Asignacion.career.name}}</td>
+          <td >{{Asignacion.workingDay}}</td>
           <td > 
             <button class="btn btn-outline-success" (click)="onPreUpdate(shoes)" data-toggle="modal" data-target="#modalShoes">Update</button>
           </td>
           <ng-template #noOwner>
             <td>
-              <a  class="btn btn-success" disable ="true">Update</a>
+              <a  class="btn btn-outline-success" disable ="true">Update</a>
             </td>
           </ng-template>
           <td *ngIf="isAdmin == true; else noAdmin">
