@@ -54,14 +54,14 @@
       <div class="col md-4">
         <form name="form" [formGroup]="form">
             <div class="col md-4">
-              <select  class="form-control" formControlName="course" required="" class="custom-select" [(ngModel)]="this.assignment.course"
+              <select  class="form-control" formControlName="course" required="" class="custom-select" [(ngModel)]="curso"
               [ngClass]="{'is-invalid': 
               form.get('course').touched && form.get('course').invalid}"  required="" class="custom-select">
                 <option value="" hidden></option>               
                 <option value="{{curso._id}}" *ngFor="let curso of courses">{{curso.name}}</option>
               </select>
               <label for="course" alt='Curso' placeholder='Curso'></label>
-              <button type="button" class="btn btn-outline-info" style="margin-left:5%; margin-bottom: 1%"  (click)="addCourse()">+</button>
+              <button type="button" class="btn btn-outline-info" style="margin-left:5%; margin-bottom: 1%" (click)="addCourse()">+</button>
             </div>
             <div class="invalid-feedback">
               <div>
@@ -105,7 +105,7 @@
   </form>   
 </div>
 <hr>
-    <button type="button" style="margin-left: 70%" class="btn btn-outline-primary float-right mb-3" (click)="onSubmit()" >Enviar formulario</button>
+    <button type="button" style="margin-left: 70%" class="btn btn-outline-primary float-right mb-3" (click)="onSubmit()">Enviar formulario</button>
       
    <br>
    <br>

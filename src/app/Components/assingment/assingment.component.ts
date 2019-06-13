@@ -15,7 +15,7 @@ export class AssingmentComponent implements OnInit {
   careers = [];
   courses = [];
   nameInstructor = [];
-
+  curso = '';
 
   form = new FormGroup({
     name: new FormControl('', Validators.required),
@@ -27,7 +27,7 @@ export class AssingmentComponent implements OnInit {
   });
   constructor(private rest: AssignmentServicesService, private tostr: ToastrService, private params: ActivatedRoute, private routerLink: Router) { 
     this.rest.setAssignment(this.assignment);
-    this.assignment = new Assignment('','','','','');
+    this.assignment = new Assignment('','','',[],'');
   }
 
   ngOnInit() {
@@ -43,7 +43,7 @@ export class AssingmentComponent implements OnInit {
       }else{
         if(res.Guardado && res.Guardado._id){
           this.tostr.success('Se ha guardado correctamet','Guardar');
-          this.routerLink.navigateByUrl('List-Redes');
+          this.routerLink.navigateByUrl('List-Assignment');
         }else if(res.message == 'La Asignatura ya fue registrada'){
           this.tostr.error('La Asignatura ya fue registrada','Error')
         }else if(res.message == 'Debes de llenar todos los campos'){
@@ -76,11 +76,14 @@ export class AssingmentComponent implements OnInit {
         this.nameInstructor.push(res.instructor[i]);
         
       }
-      console.log(res.instructor) 
     })
   }
 
   addCourse(){
-    
+    if(this.assignment.course.includes(this.curso)){
+      this.tostr.error('El curso ya ha sido ingresado','Error')
+    }else{
+      this.assignment.course.push(this.curso);
+    }
   }
 }
