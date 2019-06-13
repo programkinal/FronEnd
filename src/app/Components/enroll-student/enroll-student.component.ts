@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
+import { EnrollStudents } from 'src/app/models/enroll-students';
 
 @Component({
   selector: 'app-enroll-student',
@@ -6,8 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./enroll-student.component.css']
 })
 export class EnrollStudentComponent implements OnInit {
+  enrollStudents: EnrollStudents
 
-  constructor() { }
+  form = new FormGroup({
+    unidadAcademica: new FormControl('', Validators.required),
+    jornada: new FormControl('', Validators.required),
+    cash: new FormControl('', Validators.required),
+    grade: new FormControl('', Validators.required)
+  });
+  constructor() {
+    this.enrollStudents = new EnrollStudents('','','','','');
+   }
 
   ngOnInit() {
   }
