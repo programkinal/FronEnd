@@ -33,6 +33,7 @@ export class InstructoresComponent implements OnInit {
         this.instructor.code = res.instructor.code
         this.instructor.Person = res.instructor.Person
         this.instructor.profesion = res.instructor.profesion
+        
       })
     }else{
       this.instructor = new Instructor('','','');
