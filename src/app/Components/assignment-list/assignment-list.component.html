@@ -1,0 +1,48 @@
+<div class="row mt-5">
+  <div class="col">
+    <button type="button" class="btn btn-outline-primary float-right mb-3" routerLink="../saveAssignment" >Nueva Asignacion</button>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Instrucor</th>
+          <th scope="col">Sección</th>
+          <th scope="col">Curso</th>
+          <th scope="col">Carrera</th>
+          <th scope="col">Jornada</th>
+          <th scope="col">&nbsp;</th>
+          <th scope="col">&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr *ngFor="let Asignacion of assignment;index as i">
+
+          <th scope="row"> {{i+1}}</th>
+          <td *ngIf="Asignacion.asignaciones">{{Asignacion.asignaciones[i].instructor}}</td>
+          <td *ngIf="Asignacion.asignaciones">{{Asignacion.asignaciones[i].section}}</td>
+          <td *ngIf="Asignacion.asignaciones">{{Asignacion.asignaciones[i].course}}</td>
+          <td>{{carrera}}</td>
+          <td *ngIf="Asignacion.asignaciones">{{Asignacion.asignaciones[i].instructor}}</td>
+          <td > 
+            <button class="btn btn-outline-success" (click)="onPreUpdate(shoes)" data-toggle="modal" data-target="#modalShoes">Update</button>
+          </td>
+          <ng-template #noOwner>
+            <td>
+              <a  class="btn btn-outline-success" disable ="true">Update</a>
+            </td>
+          </ng-template>
+          <td *ngIf="isAdmin == true; else noAdmin">
+            <a  class="btn btn-danger" (click)="onDeleteShoes(shoes.id)">Delete</a>
+          </td>
+          <ng-template #noAdmin>
+            <td>
+              <a  class="btn btn-outline-danger" disable = "true">Delete</a>
+            </td>
+          </ng-template>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>

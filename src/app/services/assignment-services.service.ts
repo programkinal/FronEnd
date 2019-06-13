@@ -20,7 +20,7 @@ export class AssignmentServicesService {
     return body || [ ] || { };
   }
   getAssignment(): Observable<any>{
-    return this.http.get(this.endpoint + '/listRedes', this.httpOptions).pipe(
+    return this.http.get(this.endpoint + '/report-Assignment', this.httpOptions).pipe(
       map(this.extractData)
     );
   }
@@ -45,4 +45,11 @@ export class AssignmentServicesService {
       map(this.extractData)
     )
   }
+  setAssignmentCareer(save_Assignment): Observable<any>{
+    let params = JSON.stringify(save_Assignment);
+    return this.http.post(this.endpoint + '/report-Assignment-Career', params, this.httpOptions).pipe(
+      map(this.extractData)
+    );
+  }
+
 }

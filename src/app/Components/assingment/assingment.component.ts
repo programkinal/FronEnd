@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AssignmentServicesService } from '../../services/assignment-services.service';
 import { ToastrService } from 'ngx-toastr';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute} from '@angular/router';
 import { Router } from '@angular/router';
 import { Assignment } from 'src/app/models/assignment';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
@@ -44,6 +44,8 @@ export class AssingmentComponent implements OnInit {
           this.routerLink.navigateByUrl('List-Redes');
         }else if(res.message == 'La Asignatura ya fue registrada'){
           this.tostr.error('La Asignatura ya fue registrada','Error')
+        }else if(res.message == 'Debes de llenar todos los campos'){
+          this.tostr.error('Debes de llenar todos los campos','Error');
         }
       }
     })

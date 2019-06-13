@@ -34,6 +34,7 @@ import { ListInstructorComponent } from './Components/list-instructor/list-instr
 import { ListarRedesComponent } from './Components/listar-redes/listar-redes.component';
 import { FilterCoursePipe } from './pipes/filter-course.pipe';
 import { AssingmentComponent } from './Components/assingment/assingment.component';
+import { AssignmentListComponent } from './Components/assignment-list/assignment-list.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { AssingmentComponent } from './Components/assingment/assingment.componen
     ListInstructorComponent,
     ListarRedesComponent,
     FilterCoursePipe,
-    AssingmentComponent
+    AssingmentComponent,
+    AssignmentListComponent
   ],
   imports: [
     BrowserModule,
