@@ -86,6 +86,22 @@
         </div>
       </form>   
   </div>
+  <div class="col md-4">
+    <!-- tome el Seleccionar carrera de redes de estudio ya que es lo mismo -->
+    <form name="form" [formGroup]="form">
+        <select [(ngModel)]="this.assignment.grader" class="form-control" formControlName="grader" [ngClass]="{'is-invalid': 
+        form.get('grader').touched && form.get('grader').invalid}"  required="" class="custom-select">
+            <option value="" hidden></option>
+            <!-- <option value="{{grader._id}}" *ngFor="let carrera of careers" >{{grader.name}}</option> -->
+        </select>
+        <label for="Carrera" alt='Carrera' placeholder='Carrera'></label>
+        <div class="invalid-feedback">
+          <div>
+              Seleccione la carrera
+          </div>
+      </div>
+    </form>   
+</div>
     </div>
 </div>
 <hr>

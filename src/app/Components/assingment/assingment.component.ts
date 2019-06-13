@@ -23,7 +23,7 @@ export class AssingmentComponent implements OnInit {
     jornada: new FormControl('', Validators.required),
     section: new FormControl('',Validators.required),
     course: new FormControl('',Validators.required),
-    instructor: new FormControl('',Validators.required)
+    grader: new FormControl('',Validators.required)
   });
   constructor(private rest: AssignmentServicesService, private tostr: ToastrService, private params: ActivatedRoute, private routerLink: Router) { 
     this.rest.setAssignment(this.assignment);

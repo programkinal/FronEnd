@@ -33,7 +33,7 @@ export class AssignmentInstructorCourseComponent implements OnInit {
     this.getInstructor();
   }
   onSubmit(){
-    // this.assignment.instructor = this.instructoresAdd
+    this.assignment.instructor = this.instructoresAdd
     this.rest.setAssignmentInstructor(this.assignment).subscribe(res => {
       if(res.message == 'Error al guardar'){
         this.tostr.error('Error al guardar','Error');
@@ -71,13 +71,13 @@ export class AssignmentInstructorCourseComponent implements OnInit {
   }
   addInstructor(){
     // for(let i=0; i < this.instructoresAdd.length; i++){
-      // if(this.assignment.instructor.includes(this.instructoresAdd)){
-      //   this.tostr.error('El curso ya ha sido ingresado','Error')
-      // }else{
+    //   if(this.assignment.instructor.includes(this.instructoresAdd[i])){
+    //     this.tostr.error('El curso ya ha sido ingresado','Error')
+    //   }else{
         // this.assignment.instructor.push(this.instructoresAdd);
         this.instructoresAdd.push(this.assignment.instructor)
         console.log(this.instructoresAdd)
-      // }
+    //   }
     // }
     
   }
