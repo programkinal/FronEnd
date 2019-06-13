@@ -36,6 +36,7 @@ import { FilterCoursePipe } from './pipes/filter-course.pipe';
 import { AssingmentComponent } from './Components/assingment/assingment.component';
 import { AssignmentListComponent } from './Components/assignment-list/assignment-list.component';
 import { EnrollInstructorComponent } from './Components/enroll-instructor/enroll-instructor.component';
+import { EnrollStudentComponent } from './Components/enroll-student/enroll-student.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { EnrollInstructorComponent } from './Components/enroll-instructor/enroll
     FilterCoursePipe,
     AssingmentComponent,
     AssignmentListComponent,
-    EnrollInstructorComponent
+    EnrollInstructorComponent,
+    EnrollStudentComponent
   ],
   imports: [
     BrowserModule,

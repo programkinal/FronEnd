@@ -17,6 +17,7 @@ import { ListarRedesComponent } from './Components/listar-redes/listar-redes.com
 import { AssingmentComponent } from './Components/assingment/assingment.component';
 import { AssignmentListComponent } from './Components/assignment-list/assignment-list.component';
 import { EnrollInstructorComponent } from './Components/enroll-instructor/enroll-instructor.component';
+import { EnrollStudentComponent } from './Components/enroll-student/enroll-student.component';
 
 
 const routes: Routes = [
@@ -34,7 +35,8 @@ const routes: Routes = [
   {path: 'List-Career', component: CareersListComponent},
   {path: 'Save-assingment', component: AssingmentComponent},
   {path: 'List-Assignment', component: AssignmentListComponent},
-  {path: 'Enroll-Instructor', component: EnrollInstructorComponent}
+  {path: 'Enroll-Instructor', component: EnrollInstructorComponent},
+  {path: 'Enroll-Student', component: EnrollStudentComponent}
 ];
 
 @NgModule({
