@@ -26,16 +26,6 @@ export class AssignmentListComponent implements OnInit {
     this.rest.getAssignment().subscribe(res =>{
       console.log(res.asignaciones)
       this.assignment = res.asignaciones;
-      // res.career.forEach(namecareer => {
-      //   this.nameCareers.push(namecareer);
-      // });
-      // res.course.forEach(namecourses =>{
-      //   this.nameCourses.push(namecourses)
-      // });
-      // res.instructor.forEach(nameInstructor =>{
-      //   this.nameInstructors.push(nameInstructor)
-      // }); 
-      // console.log(this.nameCareers)
     });
   }
   

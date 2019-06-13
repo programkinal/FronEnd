@@ -1,0 +1,57 @@
+
+<div id="maxWidth" >
+  <h1 class="display-4">
+      Asignacion del Instructor a curso
+  </h1>
+  <div style="width:75%; margin-left:13%">
+  <hr class="hola">
+  </div>
+  <div class="shadow p-3 mb-5 bg-white rounded" style="width:75%; margin-left: 13%">
+  <br>
+  <div class="conteiner">
+    <div class="row">
+      <div class="col md-4">
+        <form name="form" [formGroup]="form">
+            <div class="col md-4">
+              <select  class="form-control" formControlName="course" required="" class="custom-select" [(ngModel)]="this.assignment.course"
+              [ngClass]="{'is-invalid': 
+              form.get('course').touched && form.get('course').invalid}"  required="" class="custom-select">
+                <option value="" hidden></option>               
+                <option value="{{curso._id}}" *ngFor="let curso of courses">{{curso.name}}</option>
+              </select>
+              <label for="course" alt='Curso' placeholder='Curso'></label>
+            </div>
+            <div class="invalid-feedback">
+              <div>
+                  Seleccione el curso
+              </div>
+          </div>
+        </form>   
+    </div>
+    </div>
+</div>
+<div class="col md-4">
+  <form name="form" [formGroup]="form">
+      <select [(ngModel)]="this.assignment.instructor" class="form-control" formControlName="instructor" required="" class="custom-select"
+      [ngClass]="{'is-invalid': 
+          form.get('instructor').touched && form.get('instructor').invalid}">
+          <!-- <option value="" hidden></option>                -->
+          <option value="{{personName.Person._id}}" *ngFor="let personName of nameInstructor">{{personName.Person.firstName + ' ' + personName.Person.firstLastName}}</option>
+      </select>
+      <label for="Instructor" alt='Instructor' placeholder='Instructor'></label>
+      <!-- <button type="button" class="btn btn-outline-info" style="margin-left:5%; margin-bottom: 1%" (click)="addInstructor()">+</button> -->
+      <div class="invalid-feedback">
+        <div>
+            Seleccione el  Instructor
+        </div>
+        
+    </div>
+  </form>   
+</div>
+<hr>
+    <button type="button" style="margin-left: 70%" class="btn btn-outline-primary float-right mb-3" (click)="onSubmit()">Enviar formulario</button>
+      
+   <br>
+   <br>
+  </div>
+  </div>

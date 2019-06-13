@@ -18,6 +18,8 @@ import { AssingmentComponent } from './Components/assingment/assingment.componen
 import { AssignmentListComponent } from './Components/assignment-list/assignment-list.component';
 import { EnrollInstructorComponent } from './Components/enroll-instructor/enroll-instructor.component';
 import { EnrollStudentComponent } from './Components/enroll-student/enroll-student.component';
+import { AssignmentInstructorCourseComponent } from './Components/assignment-instructor-course/assignment-instructor-course.component';
+import { ListAssignmentInstructorCourseComponent } from './Components/list-assignment-instructor-course/list-assignment-instructor-course.component';
 
 
 const routes: Routes = [
@@ -33,6 +35,8 @@ const routes: Routes = [
   {path: 'List-Course', component: CoursesListComponent},
   {path: 'Add-family', component: FamilyComponent},
   {path: 'List-Career', component: CareersListComponent},
+  {path: 'Save-assignment-Instructor-Course', component: AssignmentInstructorCourseComponent},
+  {path: 'List-assignment-Instructor-Course', component: ListAssignmentInstructorCourseComponent},
   {path: 'Save-assingment', component: AssingmentComponent},
   {path: 'List-Assignment', component: AssignmentListComponent},
   {path: 'Enroll-Instructor', component: EnrollInstructorComponent},

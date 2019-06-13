@@ -4,6 +4,7 @@ import { FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Course } from '../../models/course';
 import { CourseService } from '../../services/course.service'
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-courses',
   templateUrl: './courses.component.html',
@@ -16,7 +17,7 @@ export class CoursesComponent implements OnInit {
     code: new FormControl('', Validators.required),
     description: new FormControl('', Validators.required),
   });
-  constructor(public rest: CourseService, private toastr: ToastrService) {
+  constructor(public rest: CourseService, private toastr: ToastrService, private router: Router) {
     this.rest.setCourse(this.course);
     this.course = new Course('','','');
    }
@@ -35,6 +36,7 @@ export class CoursesComponent implements OnInit {
           this.course.name = ''
           this.course.code = ''
           this.course.description = ''
+          this.router.navigateByUrl('List-Course')
         }else if(res.message == 'El codigo ya fue registrado' ){
           this.toastr.error('El codigo ya fue registrado', 'Error');
         }else if(res.message == 'El nombre ya fue registrado'){

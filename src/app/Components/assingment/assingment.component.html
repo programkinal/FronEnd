@@ -88,22 +88,6 @@
   </div>
     </div>
 </div>
-<div class="col md-4">
-  <form name="form" [formGroup]="form">
-      <select [(ngModel)]="this.assignment.instructor" class="form-control" formControlName="instructor" required="" class="custom-select"
-      [ngClass]="{'is-invalid': 
-          form.get('instructor').touched && form.get('instructor').invalid}">
-          <option value="" hidden></option>               
-          <option value="{{personName._id}}" *ngFor="let personName of nameInstructor">{{personName.firstName + ' ' + personName.firstLastName}}</option>
-      </select>
-      <label for="Instructor" alt='Instructor' placeholder='Instructor'></label>
-      <div class="invalid-feedback">
-        <div>
-            Seleccione el  Instructor
-        </div>
-    </div>
-  </form>   
-</div>
 <hr>
     <button type="button" style="margin-left: 70%" class="btn btn-outline-primary float-right mb-3" (click)="onSubmit()">Enviar formulario</button>
       
