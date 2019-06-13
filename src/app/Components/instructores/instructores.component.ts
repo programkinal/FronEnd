@@ -32,8 +32,9 @@ export class InstructoresComponent implements OnInit {
     if(this.params.snapshot.params.id != ':id'){
       this.rest.searchInstructor(this.params.snapshot.params.id).subscribe(res =>{
         this.instructor.code = res.instructor.code
-        this.instructor.Person = res.instructor.Person
+        this.search = res.instructor.Person.firstName + ' ' +res.instructor.Person.firstLastName
         this.instructor.profesion = res.instructor.profesion
+        console.log('Este es el nombre de la persona:' + res.instructor.Person.firstName);
       })
     }else{
       this.instructor = new Instructor('','','');
