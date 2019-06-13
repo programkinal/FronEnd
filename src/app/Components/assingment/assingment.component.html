@@ -94,7 +94,7 @@
       [ngClass]="{'is-invalid': 
           form.get('instructor').touched && form.get('instructor').invalid}">
           <option value="" hidden></option>               
-          <option value="{{personName._id}}" *ngFor="let personName of nameInstructor">{{personName.firstName}} {{personName.firstLastName}}</option>
+          <option value="{{personName._id}}" *ngFor="let personName of nameInstructor">{{personName.firstName + ' ' + personName.firstLastName}}</option>
       </select>
       <label for="Instructor" alt='Instructor' placeholder='Instructor'></label>
       <div class="invalid-feedback">
