@@ -32,6 +32,11 @@ html, body {
   font-family: 'Dosis';
   font-weight: 10;
 }
+.jeje{
+  position: absolute;
+  left: 0.5%;
+  top: 5%;
+}
 
 .header {
   width: 100%;
