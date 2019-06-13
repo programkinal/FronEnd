@@ -71,11 +71,9 @@ export class AssingmentComponent implements OnInit {
   }
   getInstructor(){
     this.rest.getInstructor().subscribe(res =>{
-      // console.log(res.persona);
-      for(let i = 0; i< res.instructor.length; i++){
-        this.nameInstructor.push(res.instructor[i]);
-        
-      }
+      // console.log(res);
+      this.nameInstructor = res.persona;
+      console.log(this.nameInstructor)
     })
   }
 
