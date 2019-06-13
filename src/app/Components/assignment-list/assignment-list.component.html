@@ -19,11 +19,11 @@
         <tr *ngFor="let Asignacion of assignment;index as i">
 
           <th scope="row"> {{i+1}}</th>
-          <td *ngIf="Asignacion.asignaciones">{{Asignacion.asignaciones[i].instructor}}</td>
-          <td *ngIf="Asignacion.asignaciones">{{Asignacion.asignaciones[i].section}}</td>
-          <td *ngIf="Asignacion.asignaciones">{{Asignacion.asignaciones[i].course}}</td>
-          <td>{{carrera}}</td>
-          <td *ngIf="Asignacion.asignaciones">{{Asignacion.asignaciones[i].instructor}}</td>
+          <td>{{Asignacion.instructor.firstName + ' ' + Asignacion.instructor.firstLastName}}</td>
+          <td>{{Asignacion.section}}</td>
+          <td>{{Asignacion.course.name}}</td>
+          <td>{{Asignacion.career.name}}</td>
+          <td >{{Asignacion.workingDay}}</td>
           <td > 
             <button class="btn btn-outline-success" (click)="onPreUpdate(shoes)" data-toggle="modal" data-target="#modalShoes">Update</button>
           </td>
