@@ -44,7 +44,7 @@ export class CoursesListComponent implements OnInit {
   }
 
   add(id, name, lastName){
-    this.instructor.Person = id;
+    //this.instructor.Person = id;
     this.search = name + ' ' + lastName;
     this.insFil = [];
     this.select = '';
