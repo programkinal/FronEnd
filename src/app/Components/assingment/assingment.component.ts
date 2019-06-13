@@ -22,6 +22,7 @@ export class AssingmentComponent implements OnInit {
     career: new FormControl('', Validators.required),
     jornada: new FormControl('', Validators.required),
     section: new FormControl('',Validators.required),
+    course: new FormControl('',Validators.required),
     instructor: new FormControl('',Validators.required)
   });
   constructor(private rest: AssignmentServicesService, private tostr: ToastrService, private params: ActivatedRoute, private routerLink: Router) { 
@@ -75,19 +76,14 @@ export class AssingmentComponent implements OnInit {
         this.nameInstructor.push(res.instructor[i]);
         
       }
-      console.log(res.instructor) 
     })
   }
 
   addCourse(){
-    console.log(this.curso);
-    this.assignment.course.push(this.curso);
-    console.log(this.assignment.course);
-    this.curso = '';
-
-  }
-
-  course(){
-
+    if(this.assignment.course.includes(this.curso)){
+      this.tostr.error('El curso ya ha sido ingresado','Error')
+    }else{
+      this.assignment.course.push(this.curso);
+    }
   }
 }
