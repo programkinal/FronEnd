@@ -32,7 +32,7 @@
 </div>
 <div class="col md-4">
   <form name="form" [formGroup]="form">
-      <select [(ngModel)]="this.assignment.instructor" class="form-control" style="width: 50%; top: 45%" formControlName="instructor" required="" class="custom-select"
+      <select [(ngModel)]="instructoresAddString" class="form-control" style="width: 50%; top: 45%" formControlName="instructor" required="" class="custom-select"
       [ngClass]="{'is-invalid': 
           form.get('instructor').touched && form.get('instructor').invalid}">
           <!-- <option value="" hidden></option>                -->

@@ -8,7 +8,7 @@
   </div>
   <div class="shadow p-3 mb-5 bg-white rounded" style="width:75%; margin-left: 13%">
   <br>
-  <div class="conteiner" style="">
+  <div class="conteiner" >
       <div class="row">
         <div class="col md-4">
           <form name="form" [formGroup]="form">
@@ -26,7 +26,7 @@
             </div>
           </form>   
       </div>
-          <div class="col md-4" style="">
+          <div class="col md-4" >
             <form name="form" [formGroup]="form">
                 <select  class="form-control" formControlName="section" [ngClass]="{'is-invalid': 
                 form.get('section').touched && form.get('section').invalid}"  required="" class="custom-select" [(ngModel)]="this.assignment.section">
@@ -56,7 +56,7 @@
       <div class="col md-4">
         <form name="form" [formGroup]="form">
             <div class="col md-4">
-              <select style="margin-left: -10px; width: 85%;" class="form-control" formControlName="course" required="" class="custom-select" [(ngModel)]="this.assignment.course"
+              <select style="margin-left: -10px; width: 85%;" class="form-control" formControlName="course" required="" class="custom-select" [(ngModel)]="curso"
               [ngClass]="{'is-invalid': 
               form.get('course').touched && form.get('course').invalid}"  required="" class="custom-select">
                 <option value="" hidden></option>               
