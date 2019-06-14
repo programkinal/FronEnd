@@ -14,6 +14,7 @@ export class AssingmentComponent implements OnInit {
   assignment: Assignment;
   careers = [];
   courses = [];
+  graders = []; 
   nameInstructor = [];
   curso = '';
 
@@ -33,6 +34,7 @@ export class AssingmentComponent implements OnInit {
   ngOnInit() {
     this.getCareer();
     this.getCourse();
+    this.getGrader();
     this.getInstructor();
   }
   onSubmit(){
@@ -66,6 +68,14 @@ export class AssingmentComponent implements OnInit {
       // console.log(res.course);
       for(let i =0; i<res.course.length; i++){
         this.courses.push(res.course[i]);
+      }
+    })
+  }
+  getGrader(){
+    this.rest.getGradder().subscribe(res =>{
+      for(let i = 0; i<res.grader.length; i++){
+        this.graders.push(res.grader[i]);
+        console.log(res)
       }
     })
   }

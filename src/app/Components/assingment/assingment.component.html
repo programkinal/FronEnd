@@ -92,7 +92,7 @@
         <select [(ngModel)]="this.assignment.grader" class="form-control" formControlName="grader" [ngClass]="{'is-invalid': 
         form.get('grader').touched && form.get('grader').invalid}"  required="" class="custom-select">
             <option value="" hidden></option>
-            <!-- <option value="{{grader._id}}" *ngFor="let carrera of careers" >{{grader.name}}</option> -->
+            <option value="{{grado._id}}" *ngFor="let grado of graders" >{{grado.grader}}</option>
         </select>
         <label for="Carrera" alt='Carrera' placeholder='Carrera'></label>
         <div class="invalid-feedback">

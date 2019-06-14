@@ -45,5 +45,10 @@ export class AssignmentServicesService {
       map(this.extractData)
     )
   }
+  getGradder(): Observable<any>{
+    return this.http.get(this.endpoint + '/report-Assignment-Grader', this.httpOptions).pipe(
+      map(this.extractData)
+    )
+  }
 
 }
