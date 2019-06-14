@@ -4,6 +4,6 @@ export class Assignment {
         public career: string,
         public section: string,
         public course: Array<any>,
-        public instructor?: string
+        public grader: string
     ){}
 }
