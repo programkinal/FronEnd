@@ -1,3 +1,4 @@
+
 <div id="maxWidth" >
   <h1 class="display-4">
       Asignacion de Jornada y Seccion 
@@ -7,7 +8,7 @@
   </div>
   <div class="shadow p-3 mb-5 bg-white rounded" style="width:75%; margin-left: 13%">
   <br>
-  <div class="conteiner" style="">
+  <div class="conteiner" >
       <div class="row">
         <div class="col md-4">
           <form name="form" [formGroup]="form">
@@ -19,13 +20,13 @@
               </select>
               <label for="Jornada" alt='Jornada' placeholder='Jornada'></label>
               <div class="invalid-feedback">
-                <div>
+                <div style="margin-left: 3%; position: absolute; top: 70%">
                     Seleccione la Jornada
                 </div>
             </div>
           </form>   
       </div>
-          <div class="col md-4" style="">
+          <div class="col md-4" >
             <form name="form" [formGroup]="form">
                 <select  class="form-control" formControlName="section" [ngClass]="{'is-invalid': 
                 form.get('section').touched && form.get('section').invalid}"  required="" class="custom-select" [(ngModel)]="this.assignment.section">
@@ -41,7 +42,7 @@
                 </select>
                 <label for="Seccion" alt='Seccion' placeholder='Seccion'></label>
                 <div class="invalid-feedback">
-                  <div>
+                  <div style="margin-left: 3%; position: absolute; top: 70%">
                       Seleccione la Seccion
                   </div>
               </div>
@@ -49,19 +50,20 @@
         </div>
       </div>
   </div>
+  <br>
   <div class="conteiner">
     <div class="row">
       <div class="col md-4">
         <form name="form" [formGroup]="form">
             <div class="col md-4">
-              <select  class="form-control" formControlName="course" required="" class="custom-select" [(ngModel)]="this.assignment.course"
+              <select style="margin-left: -10px; width: 85%;" class="form-control" formControlName="course" required="" class="custom-select" [(ngModel)]="curso"
               [ngClass]="{'is-invalid': 
               form.get('course').touched && form.get('course').invalid}"  required="" class="custom-select">
                 <option value="" hidden></option>               
                 <option value="{{curso._id}}" *ngFor="let curso of courses">{{curso.name}}</option>
               </select>
-              <label for="course" alt='Curso' placeholder='Curso'></label>
-              <button type="button" class="btn btn-outline-info" style="margin-left:5%; margin-bottom: 1%" (click)="addCourse()">+</button>
+              <label style="margin-left: -18px;" for="course" alt='Curso' placeholder='Curso' ></label>
+              <button type="button" class="btn btn-outline-info" style="margin-left:73%; position: absolute; top: 17%; margin-bottom: 1%" (click)="addCourse()">+</button>
             </div>
             <div class="invalid-feedback">
               <div>
@@ -80,7 +82,7 @@
           </select>
           <label for="Carrera" alt='Carrera' placeholder='Carrera'></label>
           <div class="invalid-feedback">
-            <div>
+            <div style="margin-left: 3%; position: absolute; top: 70%">
                 Seleccione la carrera
             </div>
         </div>
@@ -94,10 +96,10 @@
             <option value="" hidden></option>
             <option value="{{grado._id}}" *ngFor="let grado of graders" >{{grado.grader}}</option>
         </select>
-        <label for="Carrera" alt='Carrera' placeholder='Carrera'></label>
+        <label for="Grado" alt='Grado' placeholder='Grado'></label>
         <div class="invalid-feedback">
-          <div>
-              Seleccione la carrera
+          <div style="margin-left: 3%; position: absolute; top: 70%">
+              Seleccione el grado
           </div>
       </div>
     </form>   

@@ -40,6 +40,9 @@ import { EnrollStudentComponent } from './Components/enroll-student/enroll-stude
 import { AssignmentInstructorCourseComponent } from './Components/assignment-instructor-course/assignment-instructor-course.component';
 import { ListAssignmentInstructorCourseComponent } from './Components/list-assignment-instructor-course/list-assignment-instructor-course.component';
 import { InscriptionComponent } from './Components/inscription/inscription.component';
+import { LoginComponent } from './Components/login/login.component';
+import { ListCourseToNetworkComponent } from './Components/list-course-to-network/list-course-to-network.component';
+import { AddCourseToNetworkComponent } from './Components/add-course-to-network/add-course-to-network.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +68,10 @@ import { InscriptionComponent } from './Components/inscription/inscription.compo
     EnrollStudentComponent,
     AssignmentInstructorCourseComponent,
     ListAssignmentInstructorCourseComponent,
-    InscriptionComponent
+    InscriptionComponent,
+    LoginComponent,
+    ListCourseToNetworkComponent,
+    AddCourseToNetworkComponent
   ],
   imports: [
     BrowserModule,

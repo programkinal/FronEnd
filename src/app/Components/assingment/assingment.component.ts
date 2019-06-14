@@ -18,7 +18,7 @@ export class AssingmentComponent implements OnInit {
   jornadas = [];
   sections = [];
   nameInstructor = [];
-  curso = [];
+  curso = '';
 
   form = new FormGroup({
     name: new FormControl('', Validators.required),
@@ -41,22 +41,44 @@ export class AssingmentComponent implements OnInit {
     this.getInstructor();
   }
   onSubmit(){
-    console.log(this.assignment)
-    this.assignment.course = this.curso
-    this.rest.setAssignment(this.assignment).subscribe(res => {
-      if(res.message == 'Error al guardar'){
-        this.tostr.error('Error al guardar','Error');
-      }else{
-        if(res.Guardado && res.Guardado._id){
-          this.tostr.success('Se ha guardado correctamet','Guardar');
-          this.routerLink.navigateByUrl('List-Assignment');
-        }else if(res.message == 'La Asignatura ya fue registrada'){
-          this.tostr.error('La Asignatura ya fue registrada','Error')
-        }else if(res.message == 'El curso debe ir obligatoriamente'){
-          this.tostr.error('El curso debe ir obligatoriamente','Error');
+    if(this.assignment.career == '' && this.assignment.grader == ''){
+      this.assignment.career = '111111111111111111111111';
+      this.assignment.grader = '111111111111111111111111';
+      console.log(this.assignment)
+      // this.assignment.course = this.curso
+      this.rest.setAssignment(this.assignment).subscribe(res => {
+        if(res.message == 'Error al guardar'){
+          this.tostr.error('Error al guardar','Error');
+        }else{
+          if(res.Guardado && res.Guardado._id){
+            this.tostr.success('Se ha guardado correctamet','Guardar');
+            this.routerLink.navigateByUrl('List-Assignment');
+          }else if(res.message == 'La Asignatura ya fue registrada'){
+            this.tostr.error('La Asignatura ya fue registrada','Error')
+          }else if(res.message == 'El curso debe ir obligatoriamente'){
+            this.tostr.error('El curso debe ir obligatoriamente','Error');
+          }
         }
-      }
-    })
+      })
+    }else{
+      console.log(this.assignment)
+      // this.assignment.course = this.curso
+      this.rest.setAssignment(this.assignment).subscribe(res => {
+        if(res.message == 'Error al guardar'){
+          this.tostr.error('Error al guardar','Error');
+        }else{
+          if(res.Guardado && res.Guardado._id){
+            this.tostr.success('Se ha guardado correctamet','Guardar');
+            this.routerLink.navigateByUrl('List-Assignment');
+          }else if(res.message == 'La Asignatura ya fue registrada'){
+            this.tostr.error('La Asignatura ya fue registrada','Error')
+          }else if(res.message == 'El curso debe ir obligatoriamente'){
+            this.tostr.error('El curso debe ir obligatoriamente','Error');
+          }
+        }
+      })
+    }
+    
   }
 
   getCareer(){
@@ -79,7 +101,6 @@ export class AssingmentComponent implements OnInit {
     this.rest.getGradder().subscribe(res =>{
       for(let i = 0; i<res.grader.length; i++){
         this.graders.push(res.grader[i]);
-        console.log(res)
       }
     })
   }
@@ -87,7 +108,6 @@ export class AssingmentComponent implements OnInit {
     this.rest.getInstructor().subscribe(res =>{
       // console.log(res);
       this.nameInstructor = res.persona;
-      console.log(this.nameInstructor)
     })
   }
   getJornada(){
@@ -101,26 +121,33 @@ export class AssingmentComponent implements OnInit {
     this.rest.getSection().subscribe(res =>{
       for(let i =0; i < res.section.length; i++){
         this.sections.push(res.section[i]);
-        console.log(res)
       }
     })
   }
 
   addCourse(){
-    // if(this.assignment.course.includes(this.curso)){
-    //   this.tostr.error('El curso ya ha sido ingresado','Error')
-    // }else{
+    console.log(this.curso)
+    if(this.curso == ''){
+      console.log('0')
+      this.tostr.error('Debe de seleccionar un curso','Error')
+    }else
+    if(this.assignment.course.includes(this.curso)){
+      console.log('1')
+      this.tostr.error('El curso ya ha sido ingresado','Error')
+    }else{
+      console.log('2')
+      this.assignment.course.push(this.curso)
+      console.log(this.assignment.course)
       // for(let i =0; i < this.curso.length; i++){
       //   if(this.curso[i] == this.curso){
       //     this.tostr.error('Ya esta el mismo curso asignado','Error')
       //   }else{
-          this.curso.push(this.assignment.course)
-          // this.curso.push(this.assignment.course)
-          this.assignment.course = ['']
-          console.log(this.curso)
+      //     this.curso.push(this.assignment.course)
+      //     this.assignment.course = ['']
+      //     console.log(this.curso)
       //   }
       // }
       
-    // }
+    }
   }
 }
