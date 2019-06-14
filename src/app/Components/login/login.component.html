@@ -1,0 +1,44 @@
+<br>
+<br>
+
+<h1  class="display-4">System Kinal</h1>
+<img src="../../../assets/img/SK.ico"  style="height: 200px; position: absolute; top: 12%; left: 30%;">
+<br>
+<div style="width:50%; margin-left:24%">
+<hr style="margin-left:-5%">
+</div>
+<div id="maxWidth" class="shadow p-3 mb-5 bg-white rounded" style="width:700px; margin-left: 17%">
+<div class="conteiner">
+    <div class="row">
+        <div class="col md-4">
+            <br>
+            <form name="form" [formGroup]="form">
+                <input class="form-control" formControlName="Correo Electronico"  required='' type='text'>
+                <label alt='Correo Electronico' placeholder='Correo Electronico'></label>
+            </form>
+        </div>
+        <div class="col md-4">
+        </div>
+    </div>
+</div>
+<hr>
+<div class="conteiner">
+  <div class="row">
+      <div class="col md-4">
+          <br>
+          <form name="form" [formGroup]="form">
+              <input class="form-control" formControlName="Contraseña"  required='' type='text'>
+              <label alt='Contraseña' placeholder='Contraseña'></label>
+          </form>
+      </div>
+      <div class="col md-4">
+      </div>
+  </div>
+</div>
+<hr>
+<div >
+<button type="button"  style="text-align: right"(click)="onSumit()" class="btn btn-outline-primary float-right  ">Iniciar Sesión </button>
+</div>
+<br>
+<br>
+</div>

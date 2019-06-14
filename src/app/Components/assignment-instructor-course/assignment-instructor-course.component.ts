@@ -24,7 +24,7 @@ export class AssignmentInstructorCourseComponent implements OnInit {
   });
   constructor(private rest: AssignmentInstructorCourseService, private tostr: ToastrService, private params: ActivatedRoute, private routerLink: Router) {
     this.rest.setAssignmentInstructor(this.assignment);
-    this.assignment = new AssignmentInstructorCourse('',null);
+    this.assignment = new AssignmentInstructorCourse('',[]);
     // this.nameInstructor = new Person('','','','','',null,'',null,'','',null,null);
    }
 
@@ -70,15 +70,24 @@ export class AssignmentInstructorCourseComponent implements OnInit {
     })
   }
   addInstructor(){
-    // for(let i=0; i < this.instructoresAdd.length; i++){
-    //   if(this.assignment.instructor.includes(this.instructoresAdd[i])){
-    //     this.tostr.error('El curso ya ha sido ingresado','Error')
-    //   }else{
-        // this.assignment.instructor.push(this.instructoresAdd);
-        this.instructoresAdd.push(this.assignment.instructor)
-        console.log(this.instructoresAdd)
-    //   }
-    // }
+    console.log(this.instructoresAddString)
+    if(this.instructoresAddString == ''){
+      console.log('0')
+      this.tostr.error('Debe de seleccionar un instructor', 'Error')
+    }else
+      if(this.assignment.instructor.includes(this.instructoresAddString)){
+        console.log('1')
+        this.tostr.error('El curso ya ha sido ingresado', 'Error')
+      }else{
+        console.log('2')
+        this.assignment.instructor.push(this.instructoresAddString)
+        console.log(this.assignment.instructor)
+      }
+    
+
+        // this.instructoresAdd.push(this.assignment.instructor)
+        // console.log(this.instructoresAdd)
+
     
   }
 
