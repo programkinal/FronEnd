@@ -21,6 +21,8 @@ export class InstructoresComponent implements OnInit {
   ins = [];
   insFil = [];
   select = '';
+  codigo = [];
+  yearDos = [];
 
   constructor(public rest: InstructorService, private toastr: ToastrService,private params: ActivatedRoute, private routerLink: Router) { 
     this.rest.setInstructor(this.instructor);
@@ -57,9 +59,14 @@ export class InstructoresComponent implements OnInit {
     this.select = this.search;
   }
 
-  add(id, name, lastName){
+  add(id, name, lastName, year){
+    var date = new Date();
     this.instructor.Person = id;
     this.search = name + ' ' + lastName;
+    this.codigo = name.split('');
+    this.yearDos = year.split('');
+    this.instructor.code = this.codigo[0] + lastName + '-' + date.getFullYear() + this.yearDos[2] + this.yearDos[3];
+    console.log(this.instructor.code);
     this.insFil = [];
     this.select = '';
   }

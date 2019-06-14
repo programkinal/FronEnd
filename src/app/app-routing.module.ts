@@ -20,6 +20,7 @@ import { EnrollInstructorComponent } from './Components/enroll-instructor/enroll
 import { EnrollStudentComponent } from './Components/enroll-student/enroll-student.component';
 import { AssignmentInstructorCourseComponent } from './Components/assignment-instructor-course/assignment-instructor-course.component';
 import { ListAssignmentInstructorCourseComponent } from './Components/list-assignment-instructor-course/list-assignment-instructor-course.component';
+import { InscriptionComponent } from './Components/inscription/inscription.component';
 
 
 const routes: Routes = [
@@ -40,7 +41,8 @@ const routes: Routes = [
   {path: 'Save-assingment', component: AssingmentComponent},
   {path: 'List-Assignment', component: AssignmentListComponent},
   {path: 'Enroll-Instructor', component: EnrollInstructorComponent},
-  {path: 'Enroll-Student', component: EnrollStudentComponent}
+  {path: 'Enroll-Student', component: EnrollStudentComponent},
+  {path: 'Inscription', component: InscriptionComponent}
 ];
 
 @NgModule({

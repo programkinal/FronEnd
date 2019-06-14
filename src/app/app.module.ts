@@ -39,6 +39,7 @@ import { EnrollInstructorComponent } from './Components/enroll-instructor/enroll
 import { EnrollStudentComponent } from './Components/enroll-student/enroll-student.component';
 import { AssignmentInstructorCourseComponent } from './Components/assignment-instructor-course/assignment-instructor-course.component';
 import { ListAssignmentInstructorCourseComponent } from './Components/list-assignment-instructor-course/list-assignment-instructor-course.component';
+import { InscriptionComponent } from './Components/inscription/inscription.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { ListAssignmentInstructorCourseComponent } from './Components/list-assig
     EnrollInstructorComponent,
     EnrollStudentComponent,
     AssignmentInstructorCourseComponent,
-    ListAssignmentInstructorCourseComponent
+    ListAssignmentInstructorCourseComponent,
+    InscriptionComponent
   ],
   imports: [
     BrowserModule,

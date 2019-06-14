@@ -6,7 +6,7 @@
 </div>
 <div id="maxWidth" class="shadow p-3 mb-5 bg-white rounded" style="width:700px; margin-left: 17%">
 
-    <div class="conteiner">
+    <!-- <div class="conteiner">
         <div class="row">
             <div class="col md-4">
                 <br>
@@ -14,7 +14,7 @@
                     <input class="form-control" formControlName="code" [ngClass]="{'is-invalid': 
                     form.get('code').touched && form.get('code').invalid}" required='' type='text' [(ngModel)]="instructor.code">
                     <label alt='Codigo instructor' placeholder='Codigo instructor'></label>
-                    <!--
+                    
                     <input id="cambio" #myInput [(ngModel)]="search2" (input)="filterP2()"
                     name="search2" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
                     <div>
@@ -22,7 +22,6 @@
                             <li *ngFor="let father of sPerson2; let indice = index"><a id="hola" name="hola" (click)="add2(indice)">{{father.firstName}} {{father.firstLastName}}</a></li>
                         </ul>
                     </div>
-                    -->
                 </form>
                 <div class="invalid-feedback">
                   <div>
@@ -33,7 +32,7 @@
             <div class="col md-4">
             </div>
         </div>
-    </div>
+    </div> -->
 <hr>
 <div class="conteiner">
     <div class="row">
@@ -45,7 +44,7 @@
                 <label alt='Nombre del instructor' placeholder='Informacion personal'></label>
                 <div>
                     <ul *ngIf="select != ''">
-                        <li *ngFor="let person of insFil"><a id="hola" name="hola" (click)="add(person._id, person.firstName, person.firstLastName)">{{person.firstName + ' ' + person.firstLastName}} </a></li>
+                        <li *ngFor="let person of insFil"><a id="hola" name="hola" (click)="add(person._id, person.firstName, person.firstLastName, person.birthname)">{{person.firstName + ' ' + person.firstLastName}} </a></li>
                     </ul>
                 </div>
                 
