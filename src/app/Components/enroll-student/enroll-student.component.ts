@@ -10,8 +10,17 @@ import { EnrollStudents } from 'src/app/models/enroll-students';
 })
 export class EnrollStudentComponent implements OnInit {
   enrollStudents: EnrollStudents
+  s = ''
 
+  Auyon(value){
+    this.s = this.enrollStudents.unitAcademy;
+    console.log(this.s)
+  }
+
+
+ 
   form = new FormGroup({
+    name: new FormControl('', Validators.required),
     unidadAcademica: new FormControl('', Validators.required),
     jornada: new FormControl('', Validators.required),
     cash: new FormControl('', Validators.required),
@@ -22,6 +31,7 @@ export class EnrollStudentComponent implements OnInit {
    }
 
   ngOnInit() {
+    console.log(this.s)
   }
 
 }
