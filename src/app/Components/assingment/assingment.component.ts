@@ -41,22 +41,44 @@ export class AssingmentComponent implements OnInit {
     this.getInstructor();
   }
   onSubmit(){
-    console.log(this.assignment)
-    // this.assignment.course = this.curso
-    this.rest.setAssignment(this.assignment).subscribe(res => {
-      if(res.message == 'Error al guardar'){
-        this.tostr.error('Error al guardar','Error');
-      }else{
-        if(res.Guardado && res.Guardado._id){
-          this.tostr.success('Se ha guardado correctamet','Guardar');
-          this.routerLink.navigateByUrl('List-Assignment');
-        }else if(res.message == 'La Asignatura ya fue registrada'){
-          this.tostr.error('La Asignatura ya fue registrada','Error')
-        }else if(res.message == 'El curso debe ir obligatoriamente'){
-          this.tostr.error('El curso debe ir obligatoriamente','Error');
+    if(this.assignment.career == '' && this.assignment.grader == ''){
+      this.assignment.career = '111111111111111111111111';
+      this.assignment.grader = '111111111111111111111111';
+      console.log(this.assignment)
+      // this.assignment.course = this.curso
+      this.rest.setAssignment(this.assignment).subscribe(res => {
+        if(res.message == 'Error al guardar'){
+          this.tostr.error('Error al guardar','Error');
+        }else{
+          if(res.Guardado && res.Guardado._id){
+            this.tostr.success('Se ha guardado correctamet','Guardar');
+            this.routerLink.navigateByUrl('List-Assignment');
+          }else if(res.message == 'La Asignatura ya fue registrada'){
+            this.tostr.error('La Asignatura ya fue registrada','Error')
+          }else if(res.message == 'El curso debe ir obligatoriamente'){
+            this.tostr.error('El curso debe ir obligatoriamente','Error');
+          }
         }
-      }
-    })
+      })
+    }else{
+      console.log(this.assignment)
+      // this.assignment.course = this.curso
+      this.rest.setAssignment(this.assignment).subscribe(res => {
+        if(res.message == 'Error al guardar'){
+          this.tostr.error('Error al guardar','Error');
+        }else{
+          if(res.Guardado && res.Guardado._id){
+            this.tostr.success('Se ha guardado correctamet','Guardar');
+            this.routerLink.navigateByUrl('List-Assignment');
+          }else if(res.message == 'La Asignatura ya fue registrada'){
+            this.tostr.error('La Asignatura ya fue registrada','Error')
+          }else if(res.message == 'El curso debe ir obligatoriamente'){
+            this.tostr.error('El curso debe ir obligatoriamente','Error');
+          }
+        }
+      })
+    }
+    
   }
 
   getCareer(){
