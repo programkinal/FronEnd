@@ -104,8 +104,10 @@ export class EnrollStudentComponent implements OnInit {
   }
 
   onSumit(){
-    
-    this.enrollStudents.unitAcademy = this.unit;
+    if(this.enrollStudents.share == null){
+      this.toastr.error('Debe de ingresar la cuota', 'Error');
+    }else{
+      this.enrollStudents.unitAcademy = this.unit;
     this.enrollStudents.career = this.carrera;
     console.log(this.enrollStudents);
       this.rest.saveInscription(this.enrollStudents).subscribe(res => {
@@ -125,6 +127,7 @@ export class EnrollStudentComponent implements OnInit {
           }
         
       });
+    }
     
   //   }else{
   //     this.rest.updateInstructor(this.params.snapshot.params.id, this.instructor).subscribe(res => {

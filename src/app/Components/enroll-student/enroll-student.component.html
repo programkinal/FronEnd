@@ -40,7 +40,7 @@
                 <select  class="form-control" formControlName="jornada" required="" [ngClass]="{'is-invalid': 
                 form.get('jornada').touched && form.get('jornada').invalid}" class="custom-select" [(ngModel)]="unit">
                     <option value="" hidden></option>
-                    <option *ngFor="let acadmy of unitAcademy">{{acadmy.academicUnit}}</option>
+                    <option value="{{acadmy.academicUnit}}" *ngFor="let acadmy of unitAcademy">{{acadmy.academicUnit}}</option>
                 </select>
                 <label for="unidadAcademica" alt='Unidad academica' placeholder='Unidad academica'></label>
                 <div class="invalid-feedback">
