@@ -55,14 +55,14 @@
       <div class="col md-4">
         <form name="form" [formGroup]="form">
             <div class="col md-4">
-              <select style="margin-left: -10px" class="form-control" formControlName="course" required="" class="custom-select" [(ngModel)]="this.assignment.course"
+              <select style="margin-left: -10px; width: 85%;" class="form-control" formControlName="course" required="" class="custom-select" [(ngModel)]="this.assignment.course"
               [ngClass]="{'is-invalid': 
               form.get('course').touched && form.get('course').invalid}"  required="" class="custom-select">
                 <option value="" hidden></option>               
                 <option value="{{curso._id}}" *ngFor="let curso of courses">{{curso.name}}</option>
               </select>
-              <label for="course" alt='Curso' placeholder='Curso' style=""></label>
-              <button type="button" class="btn btn-outline-info" style="margin-left:84%; position: absolute; top: 20%; margin-bottom: 1%" (click)="addCourse()">+</button>
+              <label style="margin-left: -18px;" for="course" alt='Curso' placeholder='Curso' ></label>
+              <button type="button" class="btn btn-outline-info" style="margin-left:73%; position: absolute; top: 17%; margin-bottom: 1%" (click)="addCourse()">+</button>
             </div>
             <div class="invalid-feedback">
               <div>
@@ -81,7 +81,7 @@
           </select>
           <label for="Carrera" alt='Carrera' placeholder='Carrera'></label>
           <div class="invalid-feedback">
-            <div>
+            <div style="margin-left: 3%; position: absolute; top: 70%">
                 Seleccione la carrera
             </div>
         </div>
@@ -97,8 +97,8 @@
         </select>
         <label for="Grado" alt='Grado' placeholder='Grado'></label>
         <div class="invalid-feedback">
-          <div>
-              Seleccione la carrera
+          <div style="margin-left: 3%; position: absolute; top: 70%">
+              Seleccione el grado
           </div>
       </div>
     </form>   
