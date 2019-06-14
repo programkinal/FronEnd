@@ -54,7 +54,7 @@
       <div class="col md-4">
         <form name="form" [formGroup]="form">
             <div class="col md-4">
-              <select  class="form-control" formControlName="course" required="" class="custom-select" [(ngModel)]="curso"
+              <select  class="form-control" formControlName="course" required="" class="custom-select" [(ngModel)]="this.assignment.course"
               [ngClass]="{'is-invalid': 
               form.get('course').touched && form.get('course').invalid}"  required="" class="custom-select">
                 <option value="" hidden></option>               

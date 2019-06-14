@@ -50,5 +50,15 @@ export class AssignmentServicesService {
       map(this.extractData)
     )
   }
+  getJornada(): Observable<any>{
+    return this.http.get('/List-Assignment-Jornada',this.httpOptions).pipe(
+      map(this.extractData)
+    )
+  }
+  getSection(): Observable<any>{
+    return this.http.get('/List-Assignment-Section', this.httpOptions).pipe(
+      map(this.extractData)
+    )
+  }
 
 }

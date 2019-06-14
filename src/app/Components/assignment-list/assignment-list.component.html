@@ -5,7 +5,6 @@
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Instrucor</th>
           <th scope="col">Sección</th>
           <th scope="col">Curso</th>
           <th scope="col">Carrera</th>
@@ -19,9 +18,8 @@
         <tr *ngFor="let Asignacion of assignment;index as i">
 
           <th scope="row"> {{i+1}}</th>
-          <td>{{Asignacion.instructor.firstName + ' ' + Asignacion.instructor.firstLastName}}</td>
           <td>{{Asignacion.section}}</td>
-          <td>{{Asignacion.course.name}}</td>
+          <td>{{Asignacion.course[i].name}}</td>
           <td>{{Asignacion.career.name}}</td>
           <td >{{Asignacion.workingDay}}</td>
           <td > 
