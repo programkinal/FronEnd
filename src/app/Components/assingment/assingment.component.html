@@ -19,7 +19,7 @@
               </select>
               <label for="Jornada" alt='Jornada' placeholder='Jornada'></label>
               <div class="invalid-feedback">
-                <div>
+                <div style="margin-left: 3%; position: absolute; top: 70%">
                     Seleccione la Jornada
                 </div>
             </div>
@@ -41,7 +41,7 @@
                 </select>
                 <label for="Seccion" alt='Seccion' placeholder='Seccion'></label>
                 <div class="invalid-feedback">
-                  <div>
+                  <div style="margin-left: 3%; position: absolute; top: 70%">
                       Seleccione la Seccion
                   </div>
               </div>
@@ -49,19 +49,20 @@
         </div>
       </div>
   </div>
+  <br>
   <div class="conteiner">
     <div class="row">
       <div class="col md-4">
         <form name="form" [formGroup]="form">
             <div class="col md-4">
-              <select  class="form-control" formControlName="course" required="" class="custom-select" [(ngModel)]="this.assignment.course"
+              <select style="margin-left: -10px" class="form-control" formControlName="course" required="" class="custom-select" [(ngModel)]="this.assignment.course"
               [ngClass]="{'is-invalid': 
               form.get('course').touched && form.get('course').invalid}"  required="" class="custom-select">
                 <option value="" hidden></option>               
                 <option value="{{curso._id}}" *ngFor="let curso of courses">{{curso.name}}</option>
               </select>
-              <label for="course" alt='Curso' placeholder='Curso'></label>
-              <button type="button" class="btn btn-outline-info" style="margin-left:5%; margin-bottom: 1%" (click)="addCourse()">+</button>
+              <label for="course" alt='Curso' placeholder='Curso' style=""></label>
+              <button type="button" class="btn btn-outline-info" style="margin-left:84%; position: absolute; top: 20%; margin-bottom: 1%" (click)="addCourse()">+</button>
             </div>
             <div class="invalid-feedback">
               <div>
