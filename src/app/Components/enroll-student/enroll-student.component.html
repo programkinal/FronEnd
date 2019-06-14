@@ -71,12 +71,12 @@
                 <select  class="form-control" formControlName="grade" required="" [ngClass]="{'is-invalid': 
                 form.get('grade').touched && form.get('grade').invalid}" class="custom-select" >
                     <option value="" hidden></option>
-                    <option value="PRIMERO">1ero</option>
-                    <option value="SEGUNDO">2do</option>
-                    <option value="TERCERO">3ro</option>
-                    <option value="CUARTO">4to</option>
-                    <option value="QUINTO">5to</option>
-                    <option value="SEXTO">6to</option>
+                    <option *ngIf="enrollStudents.unitAcademy == 'BASICO'" value="PRIMERO">1ero</option>
+                    <option *ngIf="enrollStudents.unitAcademy == 'BASICO'" value="SEGUNDO">2do</option>
+                    <option *ngIf="enrollStudents.unitAcademy == 'BASICO'" value="TERCERO">3ro</option>
+                    <option *ngIf="enrollStudents.unitAcademy == 'DIVERSIFICADO'" value="CUARTO">4to</option>
+                    <option *ngIf="enrollStudents.unitAcademy == 'DIVERSIFICADO'" value="QUINTO">5to</option>
+                    <option *ngIf="enrollStudents.unitAcademy == 'DIVERSIFICADO'" value="SEXTO">6to</option>
                 </select>
                 <label for="Jornada" alt='Grado' placeholder='Grado'></label>
                 <div class="invalid-feedback">
