@@ -135,7 +135,7 @@
         </div>
     </div>
       <hr *ngIf="this.params.snapshot.params.id != ':id'" >
-          <button type="button" style="margin-left: 70%" class="btn btn-outline-primary float-right mb-3" (click)="onSubmit()" >Enviar formulario</button>
+          <button type="button" style="margin-left: 70%" class="btn btn-outline-primary float-right mb-3" [disabled]="this.redes.careerAssigment === '' && this.redes.grader === '' && this.redes.course === ''" (click)="onSubmit()" >Enviar formulario</button>
          <button id="openModal" #openModal [hidden]="true"  routerLink="../List-Redes"></button>
          <br>
          <br>
