@@ -2,8 +2,10 @@ export class Inscription {
     constructor(
         public person: String,
         public jornada: String,
-        public unitAcademy: Array<any>,
         public grade: String,
-        public share: Number
+        public unitAcademy: String,
+        public share: Number,
+        public career: String,
+        public section: String
     ){}
 }
