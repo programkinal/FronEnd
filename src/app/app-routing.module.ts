@@ -22,8 +22,8 @@ import { AssignmentInstructorCourseComponent } from './Components/assignment-ins
 import { ListAssignmentInstructorCourseComponent } from './Components/list-assignment-instructor-course/list-assignment-instructor-course.component';
 import { InscriptionComponent } from './Components/inscription/inscription.component';
 import { LoginComponent } from './Components/login/login.component';
-import { AddCourseToNetworkComponent } from './Components/add-course-to-network/add-course-to-network.component'
-import { ListCourseToNetworkComponent } from './Components/list-course-to-network/list-course-to-network.component'
+// import { AddCourseToNetworkComponent } from './Components/add-course-to-network/add-course-to-network.component'
+// import { ListCourseToNetworkComponent } from './Components/list-course-to-network/list-course-to-network.component'
 
 
 const routes: Routes = [
@@ -47,8 +47,8 @@ const routes: Routes = [
   {path: 'Enroll-Student', component: EnrollStudentComponent},
   {path: 'Inscription', component: InscriptionComponent},
   {path: 'Login', component: LoginComponent},
-  {path: 'add-course-network', component: AddCourseToNetworkComponent},
-  {path: 'list-course-network', component: ListCourseToNetworkComponent}
+  // {path: 'add-course-network', component: AddCourseToNetworkComponent},
+  // {path: 'list-course-network', component: ListCourseToNetworkComponent}
 ];
 
 @NgModule({

@@ -23,7 +23,8 @@ export class EnrollStudentComponent implements OnInit {
     unidadAcademica: new FormControl('', Validators.required),
     jornada: new FormControl('', Validators.required),
     cash: new FormControl('', Validators.required),
-    grade: new FormControl('', Validators.required)
+    grade: new FormControl('', Validators.required),
+    name: new FormControl('', Validators.required)
   });
   constructor(public rest: InscriptionService, private toastr: ToastrService) {
     this.rest.saveInscription(this.enrollStudents);

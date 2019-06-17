@@ -42,7 +42,7 @@ import { ListAssignmentInstructorCourseComponent } from './Components/list-assig
 import { InscriptionComponent } from './Components/inscription/inscription.component';
 import { LoginComponent } from './Components/login/login.component';
 import { ListCourseToNetworkComponent } from './Components/list-course-to-network/list-course-to-network.component';
-import { AddCourseToNetworkComponent } from './Components/add-course-to-network/add-course-to-network.component';
+// import { AddCourseToNetworkComponent } from './Components/add-course-to-network/add-course-to-network.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +71,7 @@ import { AddCourseToNetworkComponent } from './Components/add-course-to-network/
     InscriptionComponent,
     LoginComponent,
     ListCourseToNetworkComponent,
-    AddCourseToNetworkComponent
+    // AddCourseToNetworkComponent
   ],
   imports: [
     BrowserModule,
