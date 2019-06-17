@@ -76,7 +76,7 @@
           <div class="row">
             <div class="col md-2">
                 <form name="form" [formGroup]="form">
-                    <select [(ngModel)]="this.redes.careerAssigment" class="form-control" formControlName="careerAssigment" [ngClass]="{'is-invalid': 
+                    <select *ngIf="this.params.snapshot.params.id != ':id'" [(ngModel)]="this.redes.careerAssigment" class="form-control" formControlName="careerAssigment" [ngClass]="{'is-invalid': 
                     form.get('careerAssigment').touched && form.get('careerAssigment').invalid}"  required="" class="custom-select">
                         <option value="" hidden></option>
                         <option value="{{carrera._id}}" *ngFor="let carrera of careers" >{{carrera.name}}</option>
@@ -91,12 +91,12 @@
             </div>
           </div>
       </div>
-      <hr>
+      <hr *ngIf="this.params.snapshot.params.id != ':id'" >
       <div class="conteiner">
         <div class="row">
             <div class="col md-2">
               <form name="form" [formGroup]="form">
-                  <select [(ngModel)]="this.redes.grader" class="form-control" style="width: 50%; top: 45%" formControlName="grader" required="" class="custom-select"
+                  <select *ngIf="this.params.snapshot.params.id != ':id'"  [(ngModel)]="this.redes.grader" class="form-control" style="width: 50%; top: 45%" formControlName="grader" required="" class="custom-select"
                   [ngClass]="{'is-invalid': 
                       form.get('grader').touched && form.get('grader').invalid}">
                       <!-- <option value="" hidden></option>                -->
@@ -115,7 +115,7 @@
             </div>
             <div class="col md-2">
               <form name="form" [formGroup]="form">
-                  <select [(ngModel)]="this.redes.course" class="form-control" style="width: 50%; top: 45%" formControlName="course" required="" class="custom-select"
+                  <select *ngIf="this.params.snapshot.params.id != ':id'"  [(ngModel)]="this.redes.course" class="form-control" style="width: 50%; top: 45%" formControlName="course" required="" class="custom-select"
                   [ngClass]="{'is-invalid': 
                       form.get('course').touched && form.get('course').invalid}">
                       <!-- <option value="" hidden></option>                -->
@@ -134,9 +134,9 @@
             </div>
         </div>
     </div>
-      <hr>
+      <hr *ngIf="this.params.snapshot.params.id != ':id'" >
           <button type="button" style="margin-left: 70%" class="btn btn-outline-primary float-right mb-3" (click)="onSubmit()" >Enviar formulario</button>
-         <button id="openModal" #openModal [hidden]="true" routerLink="../List-Redes"></button>
+         <button id="openModal" #openModal [hidden]="true"  routerLink="../List-Redes"></button>
          <br>
          <br>
         </div>

@@ -18,7 +18,7 @@ import { Assignment } from 'src/app/models/assignment';
 })
 export class RedesComponent implements OnInit {
   redes: Redes;
-  assigment: Assignment;
+  assigments: Assignment;
   careers = [];
   courses = [];
   coursesF = [];
@@ -60,7 +60,7 @@ export class RedesComponent implements OnInit {
         this.redes.dateFinal = res.buscado.dateFinal
       })
       this.rest.buscarRedesAssignment().subscribe(res =>{
-        this.assigment = res.asignaciones
+        this.assigments = res.asignaciones
 
         console.log(res.asignaciones)
       })
