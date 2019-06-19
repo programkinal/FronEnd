@@ -41,7 +41,7 @@ export class RedesComponent implements OnInit {
 
   constructor(public rest: RedesService,private toastr: ToastrService, private params: ActivatedRoute, private routerLink: Router) {
     this.rest.setRedes(this.redes);
-    this.redes = new Redes('','','','','','','','');
+    this.redes = new Redes('','','','','','',);
     // this.assigment = new Assignment('','','',null,'');
   }
   
@@ -95,6 +95,7 @@ export class RedesComponent implements OnInit {
     })
   }
   onSubmit(){
+    console.log(this.form.value)
     if(this.params.snapshot.params.id == ':id'){
       this.rest.setRedes(this.redes).subscribe(res => {
         console.log(res)

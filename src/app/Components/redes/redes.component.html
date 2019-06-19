@@ -79,7 +79,7 @@
                     <select *ngIf="this.params.snapshot.params.id != ':id'" [(ngModel)]="this.redes.careerAssigment" class="form-control" formControlName="careerAssigment" [ngClass]="{'is-invalid': 
                     form.get('careerAssigment').touched && form.get('careerAssigment').invalid}"  required="" class="custom-select">
                         <option value="" hidden></option>
-                        <option value="{{carrera._id}}" *ngFor="let carrera of careers" >{{carrera.name}}</option>
+                        <option value="{{carrera._id}}" *ngFor="let carrera of careers" >{{carrera.name }}</option>
                     </select>
                     <label for="Carrera" alt='Carrera' placeholder='Carrera'></label>
                     <div class="invalid-feedback">
@@ -92,48 +92,7 @@
           </div>
       </div>
       <hr *ngIf="this.params.snapshot.params.id != ':id'" >
-      <div class="conteiner">
-        <div class="row">
-            <div class="col md-2">
-              <form name="form" [formGroup]="form">
-                  <select *ngIf="this.params.snapshot.params.id != ':id'"  [(ngModel)]="this.redes.grader" class="form-control" style="width: 50%; top: 45%" formControlName="grader" required="" class="custom-select"
-                  [ngClass]="{'is-invalid': 
-                      form.get('grader').touched && form.get('grader').invalid}">
-                      <!-- <option value="" hidden></option>                -->
-                      <option value="{{grado._id}}" *ngFor="let grado of graders">{{grado.grader}}</option>
-                  </select>
-                  <label for="Grado" alt='Grado' placeholder='Grado' style="width: 50%; top: 50%" ></label>
-                  <!-- <button type="button" class="btn btn-outline-info" style="margin-left:50%; top: 20%; margin-bottom: 1%; position: absolute" (click)="addInstructor()">+</button> -->
-                  <div class="invalid-feedback">
-                    <div style="width: 50%; position: absolute; top: 157%; left: 5%;">
-                        Seleccione el grado
-                    </div>
-                    
-                </div>
-                
-              </form>   
-            </div>
-            <div class="col md-2">
-              <form name="form" [formGroup]="form">
-                  <select *ngIf="this.params.snapshot.params.id != ':id'"  [(ngModel)]="this.redes.course" class="form-control" style="width: 50%; top: 45%" formControlName="course" required="" class="custom-select"
-                  [ngClass]="{'is-invalid': 
-                      form.get('course').touched && form.get('course').invalid}">
-                      <!-- <option value="" hidden></option>                -->
-                      <option value="{{curso._id}}" *ngFor="let curso of courses">{{curso.name}}</option>
-                  </select>
-                  <label for="Curso" alt='Curso' placeholder='Curso' style="width: 50%; top: 50%" ></label>
-                  <!-- <button type="button" class="btn btn-outline-info" style="margin-left:50%; top: 20%; margin-bottom: 1%; position: absolute" (click)="addInstructor()">+</button> -->
-                  <div class="invalid-feedback">
-                    <!-- <div style="width: 50%; position: absolute; top: 157%; left: 5%;"> -->
-                        Seleccione el Curso
-                    <!-- </div> -->
-                    
-                </div>
-                
-              </form>   
-            </div>
-        </div>
-    </div>
+    
       <hr *ngIf="this.params.snapshot.params.id != ':id'" >
           <button type="button" style="margin-left: 70%" class="btn btn-outline-primary float-right mb-3" (click)="onSubmit()" >Enviar formulario</button>
          <button id="openModal" #openModal [hidden]="true"  routerLink="../List-Redes"></button>

@@ -6,7 +6,7 @@ export class Redes {
         public dateInit?: string,
         public dateFinal?: string,
         public careerAssigment?: string,
-        public grader?: string,
-        public course?: string
+        // public grader?: string,
+        // public course?: string
     ){}
 }
