@@ -42,6 +42,7 @@ import { ListAssignmentInstructorCourseComponent } from './Components/list-assig
 import { InscriptionComponent } from './Components/inscription/inscription.component';
 import { LoginComponent } from './Components/login/login.component';
 import { ListCourseToNetworkComponent } from './Components/list-course-to-network/list-course-to-network.component';
+import { CreateUserComponent } from './Components/create-user/create-user.component';
 // import { AddCourseToNetworkComponent } from './Components/add-course-to-network/add-course-to-network.component';
 
 @NgModule({
@@ -71,6 +72,7 @@ import { ListCourseToNetworkComponent } from './Components/list-course-to-networ
     InscriptionComponent,
     LoginComponent,
     ListCourseToNetworkComponent,
+    CreateUserComponent,
     // AddCourseToNetworkComponent
   ],
   imports: [

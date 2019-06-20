@@ -1,6 +1,6 @@
 <br>
 <br>
-<h1 class="display-4">Login</h1>
+
 <div style="width:50%; margin-left:24%">
 <hr style="margin-left:-5%">
 </div>
@@ -11,10 +11,8 @@
             <br>
             <form name="form" [formGroup]="form">
                 <input [(ngModel)]="this.user.nameUser" class="form-control" formControlName="nameUser"  required='' type='text'>
-                <label alt='Nombre del Usuario' placeholder='Nombre del Usuario'></label>
+                <label alt='Nombre del Usuario' placeholder='Nombre del usuario'></label>
             </form>
-        </div>
-        <div class="col md-4">
         </div>
     </div>
 </div>
@@ -28,11 +26,8 @@
               <label alt='Contraseña' placeholder='Contraseña'></label>
           </form>
       </div>
-      <div class="col md-4">
-      </div>
   </div>
 </div>
-<hr>
 <hr>
   <div class="conteiner">
     <div class="row">
@@ -58,7 +53,7 @@
   </div>
 <hr>
 <div >
-<button type="button"  style="text-align: right"(click)="onSubmit()" class="btn btn-outline-primary float-right  ">Iniciar Sesión </button>
+<button type="button"  style="text-align: right"(click)="onSubmit()" class="btn btn-outline-primary float-right  ">Crear Usuario </button>
 </div>
 <br>
 <br>
