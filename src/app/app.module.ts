@@ -43,6 +43,7 @@ import { InscriptionComponent } from './Components/inscription/inscription.compo
 import { LoginComponent } from './Components/login/login.component';
 import { ListCourseToNetworkComponent } from './Components/list-course-to-network/list-course-to-network.component';
 import { CreateUserComponent } from './Components/create-user/create-user.component';
+import { UsersComponent } from './Components/users/users.component';
 // import { AddCourseToNetworkComponent } from './Components/add-course-to-network/add-course-to-network.component';
 
 @NgModule({
@@ -73,6 +74,7 @@ import { CreateUserComponent } from './Components/create-user/create-user.compon
     LoginComponent,
     ListCourseToNetworkComponent,
     CreateUserComponent,
+    UsersComponent,
     // AddCourseToNetworkComponent
   ],
   imports: [
