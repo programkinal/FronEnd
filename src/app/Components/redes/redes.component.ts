@@ -7,6 +7,8 @@ import { Redes } from 'src/app/models/redes';
 import { ListarRedesComponent } from '../listar-redes/listar-redes.component';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Router } from '@angular/router';
+import { Assignment } from 'src/app/models/assignment';
+// import { RSA_NO_PADDING } from 'constants';
 
 
 @Component({
@@ -16,15 +18,21 @@ import { Router } from '@angular/router';
 })
 export class RedesComponent implements OnInit {
   redes: Redes;
+  assigments: Assignment;
   careers = [];
   courses = [];
   coursesF = [];
+  coursenetworking =[];
+  graders = [];
   selectx: string = '';
   form = new FormGroup({
     name: new FormControl('', Validators.required),
     career: new FormControl('', Validators.required),
     dateInit: new FormControl('', Validators.required),
-    dateFinal: new FormControl('',Validators.required)
+    dateFinal: new FormControl('',Validators.required),
+    careerAssigment: new FormControl('', Validators.required),
+    grader: new FormControl('', Validators.required),
+    course: new FormControl('', Validators.required)
   });
 
   @ViewChild('openModal') openModal:ElementRef;
@@ -33,13 +41,17 @@ export class RedesComponent implements OnInit {
 
   constructor(public rest: RedesService,private toastr: ToastrService, private params: ActivatedRoute, private routerLink: Router) {
     this.rest.setRedes(this.redes);
-    this.redes = new Redes('','','','');
+    this.redes = new Redes('','','','','','',);
+    // this.assigment = new Assignment('','','',null,'');
   }
   
   
 
   ngOnInit() {
     this.getCareer();
+    this.getCourse();
+    this.getGraders();
+    // this.getRedesCours();
     if(this.params.snapshot.params.id != ':id'){
       this.rest.buscandoRedes(this.params.snapshot.params.id).subscribe(res =>{
         this.redes.name = res.buscado.name
@@ -47,6 +59,12 @@ export class RedesComponent implements OnInit {
         this.redes.dateInit = res.buscado.dateInit
         this.redes.dateFinal = res.buscado.dateFinal
       })
+      this.rest.buscarRedesAssignment().subscribe(res =>{
+        this.assigments = res.asignaciones
+
+        console.log(res.asignaciones)
+      })
+      
     }else{
       this.redes = new Redes('','','','');
     }
@@ -61,7 +79,23 @@ export class RedesComponent implements OnInit {
       }
     });
   }
+  getCourse(){
+    this.rest.getCourses().subscribe(res =>{
+      for(let i =0; i < res.course.length; i ++){
+        this.courses.push(res.course[i]);
+      }
+    })
+  }
+  getGraders(){
+    this.rest.getGrader().subscribe(res =>{
+      console.log(res);
+      for(let i =0; i < res.grader.length; i++){
+        this.graders.push(res.grader[i])
+      }
+    })
+  }
   onSubmit(){
+    console.log(this.form.value)
     if(this.params.snapshot.params.id == ':id'){
       this.rest.setRedes(this.redes).subscribe(res => {
         console.log(res)
@@ -92,6 +126,8 @@ export class RedesComponent implements OnInit {
           if(res.actualizado &&  res.actualizado._id){
             this.toastr.success('Se ha actualizado exitosamente!','Actualizado');
             this.routerLink.navigateByUrl('List-Redes');
+          }else if(res.message == 'Las carreras tienen ser las mismas'){
+            this.toastr.error('Las carreras tienen ser las mismas');
           }
         }
       })

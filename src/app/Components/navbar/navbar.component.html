@@ -13,35 +13,35 @@
       
     </ul>
     <form class="form-inline my-2 my-lg-0">
-        <a routerLink="/Save-People" class="link">
+        <a *ngIf ="isLogged" routerLink="/Save-People" class="link">
           <div class="title">Persons</div>
           <div class="bar"></div>
         </a>
-        <a routerLink="/Add-family" class="link">
+        <a *ngIf ="isLogged" routerLink="/Add-family" class="link">
           <div class="title">Family</div>
           <div class="bar"></div>
         </a>
-        <a routerLink="/Save-Units-Academic" class="link">
+        <a *ngIf ="isLogged" routerLink="/Save-Units-Academic" class="link">
           <div class="title">Units</div>
           <div class="bar"></div>
         </a>
-        <a routerLink="/List-Career" class="link">
+        <a *ngIf ="isLogged" routerLink="/List-Career" class="link">
           <div class="title">Careers</div>
           <div class="bar"></div>
         </a>
-        <a routerLink="/List-Course" class="link">
+        <a *ngIf ="isLogged" routerLink="/List-Course" class="link">
           <div class="title">Courses</div>
           <div class="bar"></div>
         </a>
-        <a routerLink="/List-Redes" class="link">
+        <a *ngIf ="isLogged" routerLink="/List-Redes" class="link">
           <div class="title">Networks</div>
           <div class="bar"></div>
         </a>
-        <a routerLink="/listInstructor" class="link">
+        <a *ngIf ="isLogged" routerLink="/listInstructor" class="link">
           <div class="title">Instructors</div>
           <div class="bar"></div>
         </a>
-        <a routerLink="/List-Assignment" class="link">
+        <a *ngIf ="isLogged" routerLink="/List-Assignment" class="link">
           <div class="title">Assingment</div>
           <div class="bar"></div>
         </a>
@@ -49,16 +49,25 @@
           <div class="title">Instructor</div>
           <div class="bar"></div>
         </a> -->
-        <a routerLink="/Enroll-Student" class="link">
+        <a *ngIf ="isLogged" routerLink="/Enroll-Student" class="link">
           <div class="title">Student</div>
           <div class="bar"></div>
         </a>
-        <a routerLink="/List-assignment-Instructor-Course" class="link">
+        <a *ngIf ="isLogged" routerLink="/List-assignment-Instructor-Course" class="link">
           <div class="title">Assingment Instructor</div>
           <div class="bar"></div>
         </a>
-        <a routerLink="/list-course-network" class="link">
-          <div class="title">Course to Network</div>
+
+        <a *ngIf ="!isLogged" routerLink="/Login" class="link">
+          <div class="title">Login</div>
+          <div class="bar"></div>
+        </a>
+        <a *ngIf ="!isLogged" routerLink="/Create-User" class="link">
+          <div class="title">Crear Usuario</div>
+          <div class="bar"></div>
+        </a>
+        <a *ngIf ="isLogged" class="link">
+          <div class="title" (click)="onLogout()">Logout</div>
           <div class="bar"></div>
         </a>
     </form>

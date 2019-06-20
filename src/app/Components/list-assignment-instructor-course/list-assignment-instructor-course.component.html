@@ -17,7 +17,7 @@
         <tr *ngFor="let Asignacion of assigment;index as i">
 
           <th scope="row"> {{i+1}}</th>
-          <td  >{{Asignacion.instructor[i].firstName + ' ' + Asignacion.instructor[i].firstLastName}} </td>
+          <td  >{{'1.' + Asignacion.instructor[0].firstName + ' ' + Asignacion.instructor[0].firstLastName+ ' 2.' +Asignacion.instructor[1].firstName + ' ' + Asignacion.instructor[1].firstLastName }} </td>
           <td>{{Asignacion.course.name}}</td>
           <td > 
             <button class="btn btn-outline-success" (click)="onPreUpdate(shoes)" data-toggle="modal" data-target="#modalShoes">Update</button>

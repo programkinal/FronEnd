@@ -12,9 +12,14 @@
             <div class="col md-4">
                 <br>
                 <form name="form" [formGroup]="form">
-                    <input  class="form-control" formControlName="name" [ngClass]="{'is-invalid': 
-                    form.get('name').touched && form.get('name').invalid}" required='' type='text' >
+                    <input  class="form-control" formControlName="person" [ngClass]="{'is-invalid': 
+                    form.get('person').touched && form.get('person').invalid}" (input)="filter()" [(ngModel)]="search" required='' type='text' >
                     <label alt='Nombre del estudiante' placeholder='Nombre del estudiante'></label>
+                    <div>
+                        <ul *ngIf="select != ''">
+                            <li *ngFor="let person of personFi"><a id="hola" name="hola" (click)="add(person._id, person.firstName, person.firstLastName, person.birthname)">{{person.firstName + ' ' + person.firstLastName}} </a></li>
+                        </ul>
+                    </div>
                 </form>
                 <div class="invalid-feedback">
                   <div>
@@ -32,24 +37,23 @@
     <div class="row">
         <div class="col md-4">
             <form name="form" [formGroup]="form">
-                <select  class="form-control" formControlName="unidadAcademica" required="" [ngClass]="{'is-invalid': 
-                form.get('unidadAcademica').touched && form.get('unidadAcademica').invalid}" class="custom-select" [(ngModel)]="enrollStudents.unitAcademy">
+                <select  class="form-control" formControlName="jornada" required="" [ngClass]="{'is-invalid': 
+                form.get('jornada').touched && form.get('jornada').invalid}" class="custom-select" [(ngModel)]="unit">
                     <option value="" hidden></option>
-                    <option value="DIVERSIFICADO">Diversificado</option>
-                    <option value="BASICO">Basico</option>
+                    <option value="{{acadmy.academicUnit}}" *ngFor="let acadmy of unitAcademy">{{acadmy.academicUnit}}</option>
                 </select>
                 <label for="unidadAcademica" alt='Unidad academica' placeholder='Unidad academica'></label>
                 <div class="invalid-feedback">
                   <div>
-                      Seleccione la Jornada
+                      Seleccione la Unidad Academica
                   </div>
               </div>
             </form>   
         </div>
         <div class="col md-4">
             <form name="form" [formGroup]="form">
-                <select *ngIf="enrollStudents.unitAcademy == 'BASICO'" class="form-control" formControlName="jornada" required="" [ngClass]="{'is-invalid': 
-                form.get('jornada').touched && form.get('jornada').invalid}" class="custom-select" >
+                <select *ngIf="unit == 'DIVERSIFICADO' || unit == ''" class="form-control" formControlName="jornada" required="" [ngClass]="{'is-invalid': 
+                form.get('jornada').touched && form.get('jornada').invalid}" class="custom-select" [(ngModel)]="enrollStudents.jornada">
                     <option value="" hidden></option>
                     <option value="MATUTINA">Matutina</option>
                     <option value="VESPERTINA">Vespertina</option>
@@ -62,6 +66,44 @@
               </div>
             </form>   
         </div>
+        <div class="col md-4">
+            <form name="form" [formGroup]="form">
+                <select *ngIf="unit == 'DIVERSIFICADO' || unit == ''" class="form-control" formControlName="jornada" required="" [ngClass]="{'is-invalid': 
+                form.get('jornada').touched && form.get('jornada').invalid}" class="custom-select" [(ngModel)]="carrera">
+                    <option value="" hidden></option>
+                    <option *ngFor="let car of career">{{car.name}}</option>
+                </select>
+                <label for="carrera" alt='Carrera' placeholder='Carrera'></label>
+                <div class="invalid-feedback">
+                  <div>
+                      Seleccione la Carrera
+                  </div>
+              </div>
+            </form>   
+        </div>
+        <div class="col md-4">
+            <form name="form" [formGroup]="form">
+                <select  class="form-control" formControlName="jornada" required="" [ngClass]="{'is-invalid': 
+                form.get('jornada').touched && form.get('jornada').invalid}" class="custom-select" [(ngModel)]="enrollStudents.section">
+                    <option value="" hidden></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                    <option value="F">F</option>
+                    <option value="G">G</option>
+                    <option value="H">H</option>
+
+                </select>
+                <label for="unidadAcademica" alt='Seccion' placeholder='Seccion'></label>
+                <div class="invalid-feedback">
+                  <div>
+                      Seleccione la seccion
+                  </div>
+              </div>
+            </form>   
+        </div>
     </div>
 </div>
 <hr>
@@ -69,15 +111,15 @@
     <div class="row">
         <div class="col md-4">
             <form name="form" [formGroup]="form">
-                <select  class="form-control" formControlName="grade" required="" [ngClass]="{'is-invalid': 
-                form.get('grade').touched && form.get('grade').invalid}" class="custom-select" >
+                <select class="form-control" formControlName="grade" required="" [ngClass]="{'is-invalid': 
+                form.get('grade').touched && form.get('grade').invalid}" class="custom-select" [(ngModel)]="enrollStudents.grade">
                     <option value="" hidden></option>
-                    <option *ngIf="enrollStudents.unitAcademy == 'BASICO'" value="PRIMERO">1ero</option>
-                    <option *ngIf="enrollStudents.unitAcademy == 'BASICO'" value="SEGUNDO">2do</option>
-                    <option *ngIf="enrollStudents.unitAcademy == 'BASICO'" value="TERCERO">3ro</option>
-                    <option *ngIf="enrollStudents.unitAcademy == 'DIVERSIFICADO'" value="CUARTO">4to</option>
-                    <option *ngIf="enrollStudents.unitAcademy == 'DIVERSIFICADO'" value="QUINTO">5to</option>
-                    <option *ngIf="enrollStudents.unitAcademy == 'DIVERSIFICADO'" value="SEXTO">6to</option>
+                    <option value="PRIMERO BÁSICO" *ngIf="unit == 'BÁSICOS'">PRIMERO BÁSICO</option>
+                    <option value="SEGUNDO BÁSICO" *ngIf="unit == 'BÁSICOS'">SEGUNDO BÁSICO</option>
+                    <option value="TERCERO BÁSICO" *ngIf="unit == 'BÁSICOS'">TERCERO BÁSICO</option>
+                    <option value="CUARTO DIVERSIFICADO" *ngIf="unit == 'DIVERSIFICADO'">CUARTO DIVERSIFICADO</option>
+                    <option value="QUINTO DIVERSIFICADO" *ngIf="unit == 'DIVERSIFICADO'">QUINTO DIVERSIFICADO</option>
+                    <option value="SEXTO DIVERSIFICADO" *ngIf="unit == 'DIVERSIFICADO'">SEXTO DIVERSIFICADO</option>
                 </select>
                 <label for="Jornada" alt='Grado' placeholder='Grado'></label>
                 <div class="invalid-feedback">
@@ -96,7 +138,7 @@
 
             <form name="form" [formGroup]="form">
                 <input  class="form-control" formControlName="cash" [ngClass]="{'is-invalid': 
-                form.get('cash').touched && form.get('cash').invalid}" required='' type='text' >
+                form.get('cash').touched && form.get('cash').invalid}" [(ngModel)]="enrollStudents.share" required='' type='text' >
                 <label alt='Cuota' placeholder='Cuota'></label>
             </form>
             <div class="invalid-feedback">

@@ -41,6 +41,8 @@ export class CoursesComponent implements OnInit {
           this.toastr.error('El codigo ya fue registrado', 'Error');
         }else if(res.message == 'El nombre ya fue registrado'){
           this.toastr.error('El nombre ya fue registrado', 'Error');
+        }else if(res.message == 'Si funciona'){
+          this.toastr.success('Si funciona');
         }
           
       }

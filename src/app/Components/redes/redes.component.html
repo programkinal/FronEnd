@@ -47,7 +47,7 @@
           <div class="row">
               <div class="col md-4">
                   <form name="form" [formGroup]="form">
-                      <input type="Date" name="dateInit" [(ngModel)]="this.redes.dateInit" class="form-control" formControlName="dateInit" [ngClass]="{'is-invalid': 
+                      <input type="text" name="dateInit" [(ngModel)]="this.redes.dateInit" class="form-control" formControlName="dateInit" [ngClass]="{'is-invalid': 
                       form.get('dateInit').touched && form.get('dateInit').invalid}" required='' >
                       <label for="dateInit" alt='Fecha de inicio' placeholder='Fecha de inicio'></label>
                       <div class="invalid-feedback">
@@ -72,8 +72,30 @@
           </div>
       </div>
       <hr>
-          <button type="button" style="margin-left: 70%" class="btn btn-outline-primary float-right mb-3" (click)="onSubmit()" >Enviar formulario</button>
-         <button id="openModal" #openModal [hidden]="true" routerLink="../List-Redes"></button>
+        <div class="conteiner">
+          <div class="row">
+            <div class="col md-2">
+                <form name="form" [formGroup]="form">
+                    <select *ngIf="this.params.snapshot.params.id != ':id'" [(ngModel)]="this.redes.careerAssigment" class="form-control" formControlName="careerAssigment" [ngClass]="{'is-invalid': 
+                    form.get('careerAssigment').touched && form.get('careerAssigment').invalid}"  required="" class="custom-select">
+                        <option value="" hidden></option>
+                        <option value="{{carrera._id}}" *ngFor="let carrera of careers" >{{carrera.name }}</option>
+                    </select>
+                    <label for="Carrera" alt='Carrera' placeholder='Carrera'></label>
+                    <div class="invalid-feedback">
+                      <div>
+                          Seleccione la carrera
+                      </div>
+                  </div>
+                </form>   
+            </div>
+          </div>
+      </div>
+      <hr *ngIf="this.params.snapshot.params.id != ':id'" >
+    
+      <hr *ngIf="this.params.snapshot.params.id != ':id'" >
+          <button type="button" style="margin-left: 70%" class="btn btn-outline-primary float-right mb-3" [disabled]="this.redes.careerAssigment === '' && this.redes.grader === '' && this.redes.course === ''" (click)="onSubmit()" >Enviar formulario</button>
+         <button id="openModal" #openModal [hidden]="true"  routerLink="../List-Redes"></button>
          <br>
          <br>
         </div>

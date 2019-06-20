@@ -52,7 +52,7 @@ export class InscriptionService {
 
   saveInscription(save_inscription): Observable<any>{
     let params = JSON.stringify(save_inscription);
-    return this.http.post(this.endpoint + '/saveInscription', this.httpOptions).pipe(
+    return this.http.post(this.endpoint + '/saveInscription', params, this.httpOptions).pipe(
       map(this.extractData)
     );
   }

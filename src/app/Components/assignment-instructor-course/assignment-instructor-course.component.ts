@@ -33,7 +33,7 @@ export class AssignmentInstructorCourseComponent implements OnInit {
     this.getInstructor();
   }
   onSubmit(){
-    this.assignment.instructor = this.instructoresAdd
+    // this.assignment.instructor = this.instructoresAdd
     this.rest.setAssignmentInstructor(this.assignment).subscribe(res => {
       if(res.message == 'Error al guardar'){
         this.tostr.error('Error al guardar','Error');

@@ -61,6 +61,11 @@ export class RedesService {
       map(this.extractData)
     )
   }
+  buscarRedesAssignment(): Observable<any>{
+    return this.http.get(this.endpoint + '/Listar-Assignmete-Redes', this.httpOptions).pipe(
+      map(this.extractData)
+    )
+  }
   updateRedes(updaate_Redes, id): Observable<any>{
     let params = JSON.stringify(updaate_Redes);
     return this.http.put(this.endpoint + '/updateRedes/' + id, params, this.httpOptions).pipe(
@@ -72,4 +77,10 @@ export class RedesService {
       map(this.extractData)
     )
   }
+  getGrader(): Observable<any>{
+    return this.http.get(this.endpoint + '/ListGrader', this.httpOptions).pipe(
+      map(this.extractData)
+    )
+  }
+
 }

@@ -22,33 +22,34 @@ import { AssignmentInstructorCourseComponent } from './Components/assignment-ins
 import { ListAssignmentInstructorCourseComponent } from './Components/list-assignment-instructor-course/list-assignment-instructor-course.component';
 import { InscriptionComponent } from './Components/inscription/inscription.component';
 import { LoginComponent } from './Components/login/login.component';
-import { AddCourseToNetworkComponent } from './Components/add-course-to-network/add-course-to-network.component'
-import { ListCourseToNetworkComponent } from './Components/list-course-to-network/list-course-to-network.component'
+import { CreateUserComponent } from './Components/create-user/create-user.component';
+import { AuthGuard } from './guards/auth.guard';
+// import { AddCourseToNetworkComponent } from './Components/add-course-to-network/add-course-to-network.component'
+// import { ListCourseToNetworkComponent } from './Components/list-course-to-network/list-course-to-network.component'
 
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'List-Redes', component: ListarRedesComponent},
-  {path: 'redes/:id', component: RedesComponent},
-  {path: 'listInstructor', component: ListInstructorComponent},
-  {path: 'instructores/:id', component: InstructoresComponent},
-  {path: 'Save-People', component: PeopleComponent},
-  {path: 'Save-Units-Academic', component: UnitsComponent},
-  {path: 'Save-Career-Educative', component: CareerComponent},
-  {path: 'Save-Course', component: CoursesComponent},
-  {path: 'List-Course', component: CoursesListComponent},
-  {path: 'Add-family', component: FamilyComponent},
-  {path: 'List-Career', component: CareersListComponent},
-  {path: 'Save-assignment-Instructor-Course', component: AssignmentInstructorCourseComponent},
-  {path: 'List-assignment-Instructor-Course', component: ListAssignmentInstructorCourseComponent},
-  {path: 'Save-assingment', component: AssingmentComponent},
-  {path: 'List-Assignment', component: AssignmentListComponent},
-  {path: 'Enroll-Instructor', component: EnrollInstructorComponent},
-  {path: 'Enroll-Student', component: EnrollStudentComponent},
-  {path: 'Inscription', component: InscriptionComponent},
+  {path: 'List-Redes', component: ListarRedesComponent, canActivate:[AuthGuard]},
+  {path: 'redes/:id', component: RedesComponent, canActivate:[AuthGuard]},
+  {path: 'listInstructor', component: ListInstructorComponent, canActivate:[AuthGuard]},
+  {path: 'instructores/:id', component: InstructoresComponent, canActivate:[AuthGuard]},
+  {path: 'Save-People', component: PeopleComponent, canActivate:[AuthGuard]},
+  {path: 'Save-Units-Academic', component: UnitsComponent, canActivate:[AuthGuard]},
+  {path: 'Save-Career-Educative', component: CareerComponent, canActivate:[AuthGuard]},
+  {path: 'Save-Course', component: CoursesComponent, canActivate:[AuthGuard]},
+  {path: 'List-Course', component: CoursesListComponent, canActivate:[AuthGuard]},
+  {path: 'Add-family', component: FamilyComponent, canActivate:[AuthGuard]},
+  {path: 'List-Career', component: CareersListComponent, canActivate:[AuthGuard]},
+  {path: 'Save-assignment-Instructor-Course', component: AssignmentInstructorCourseComponent, canActivate:[AuthGuard]},
+  {path: 'List-assignment-Instructor-Course', component: ListAssignmentInstructorCourseComponent, canActivate:[AuthGuard]},
+  {path: 'Save-assingment', component: AssingmentComponent, canActivate:[AuthGuard]},
+  {path: 'List-Assignment', component: AssignmentListComponent, canActivate:[AuthGuard]},
+  {path: 'Enroll-Instructor', component: EnrollInstructorComponent, canActivate:[AuthGuard]},
+  {path: 'Enroll-Student', component: EnrollStudentComponent, canActivate:[AuthGuard]},
+  {path: 'Inscription', component: InscriptionComponent, canActivate:[AuthGuard]},
   {path: 'Login', component: LoginComponent},
-  {path: 'add-course-network', component: AddCourseToNetworkComponent},
-  {path: 'list-course-network', component: ListCourseToNetworkComponent}
+  {path: 'Create-User', component: CreateUserComponent}
 ];
 
 @NgModule({
