@@ -6,6 +6,7 @@
 <hr style="margin-left:-5%">
 </div>
 <div id="maxWidth" class="shadow p-3 mb-5 bg-white rounded" style="width:700px; margin-left: 17%">
+  <div class="container" >
   <div class="row">
     <div class="col md-4">
       <form name="form" [formGroup]="form">
@@ -22,8 +23,6 @@
       </form>   
   </div>
 <hr>
-<div class="container">
-  <div class="row">
     <div class="col md-4">
       <form name="form" [formGroup]="form">
           <select  class="form-control" formControlName="" required="" [ngClass]="{'is-invalid': 
@@ -39,6 +38,8 @@
       </form>   
   </div>
 </div>
+</div>
+<div class="container">
 <div class="row">
   <div class="col md-4">
     <form name="form" [formGroup]="form">
@@ -54,8 +55,7 @@
       </div>
     </form>   
 </div>
-</div>
-<div class="row">
+
   <div class="col md-4">
     <form name="form" [formGroup]="form">
         <select  class="form-control" formControlName="" required="" [ngClass]="{'is-invalid': 
