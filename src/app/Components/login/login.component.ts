@@ -4,6 +4,7 @@ import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { ToastrService } from 'ngx-toastr';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-login',
@@ -25,6 +26,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    
   }
 
   onSubmit(){
@@ -41,7 +43,11 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('auth','true');
           let auth = localStorage.getItem('auth');
           console.log(toke)
-        }
+          console.log(auth)
+          // this.component.getAuth();
+          this.router.navigateByUrl('/')
+          
+        } 
       }
     })
   }
