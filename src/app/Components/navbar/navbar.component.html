@@ -67,14 +67,13 @@
           <div class="bar"></div>
         </a>
         <a *ngIf ="isLogged" class="link">
+          <div class="title" (click)="Users()">Users</div>
+          <div class="bar"></div>
+        </a>
+        <a *ngIf ="isLogged" class="link">
           <div class="title" (click)="onLogout()">Logout</div>
           <div class="bar"></div>
         </a>
     </form>
   </div>
 </nav>
-
-
-
-
-

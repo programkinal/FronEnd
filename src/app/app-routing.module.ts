@@ -24,6 +24,8 @@ import { InscriptionComponent } from './Components/inscription/inscription.compo
 import { LoginComponent } from './Components/login/login.component';
 import { CreateUserComponent } from './Components/create-user/create-user.component';
 import { AuthGuard } from './guards/auth.guard';
+import { UsersComponent } from './Components/users/users.component';
+import { from } from 'rxjs';
 // import { AddCourseToNetworkComponent } from './Components/add-course-to-network/add-course-to-network.component'
 // import { ListCourseToNetworkComponent } from './Components/list-course-to-network/list-course-to-network.component'
 
@@ -49,7 +51,8 @@ const routes: Routes = [
   {path: 'Enroll-Student', component: EnrollStudentComponent, canActivate:[AuthGuard]},
   {path: 'Inscription', component: InscriptionComponent, canActivate:[AuthGuard]},
   {path: 'Login', component: LoginComponent},
-  {path: 'Create-User', component: CreateUserComponent}
+  {path: 'Create-User', component: CreateUserComponent},
+  {path: 'Users', component: UsersComponent}
 ];
 
 @NgModule({
