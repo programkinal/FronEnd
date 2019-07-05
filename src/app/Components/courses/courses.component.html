@@ -1,6 +1,6 @@
 
 <br>
-<h1 class="display-4">Ingrese los Cursos</h1>
+<h1 *ngIf="req.token.rol == 'ADMIN'" class="display-4">Ingrese los Cursos</h1>
 <div style="width:50%; margin-left:24%">
    <!-- <div style="width:40%; margin-left:27%">-->
 <hr class="class">
